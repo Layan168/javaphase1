@@ -17,6 +17,15 @@ public abstract class books {
 	this.noc = noc;
 	}
 	
+	public books( books b) {
+		title = b.title;
+		author = b.author;
+		publisher = b.publisher;
+		price = b.price;
+		year = b.year;
+		noc = b.noc;
+	}
+	
 	public abstract double specialDiscount(); //gives a discount based on the type of the book and other factors
 	
 	public double  discount(int percent) { //gives a discount by percent
