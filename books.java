@@ -17,7 +17,7 @@ public abstract class books {
 	this.noc = noc;
 	}
 	
-	public books( books b) {
+	public books( books b) { //this might not work for now because it is abstract!
 		title = b.title;
 		author = b.author;
 		publisher = b.publisher;
