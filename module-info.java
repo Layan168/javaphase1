@@ -1,3 +1,0 @@
-package project;
-class finction {
-}
