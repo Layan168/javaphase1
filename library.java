@@ -1,50 +1,91 @@
 package javaphase1;
 
-public class library {
-	public String name; //name of the library
-	public String location; //the location of the library
-	public int numWorkers; //the number of workers 
-	public int nob; //number of books in the array
-	public int noo; //number of orders in the array 
-	books inStore []; //array containing all the books in the library
-	order ListOfOrders[];
+public abstract class books {
+	protected String title; //title of the book
+	protected String author; //author of the book
+	protected double price; //price of the book
+	protected String publisher; //publisher of the book
+	protected int year; //the year the book was published in
+	protected int noc; //number of copies available
 	
-	public library(String n , String loc) {
-		name = n;
-		location = loc;
-		inStore = new books[500];
-		ListOfOrders = new order[999];
-		nob = 0 ;
-		noo = 0;
+	public books (String t, String a, String p, double pr, int y, int noc) {
+	title = t;
+	author = a;
+	publisher = p;
+	price = pr;
+	year = y;
+	this.noc = noc;
 	}
 	
-	public boolean addBook (books b) { //this is supposed to be able to take a book object(that we just created) and add it to the list of the books available in this specific library
-		if (nob < inStore.length) {
-			inStore[nob ++] = b;
-			return true;
-		}
-		return false;
-		
+	public books( books b) { //this might not work for now because it is abstract!
+		title = b.title;
+		author = b.author;
+		publisher = b.publisher;
+		price = b.price;
+		year = b.year;
+		noc = b.noc;
 	}
 	
-	public boolean addOrder(order o) {
-		if(noo < ListOfOrders.length) {
-			ListOfOrders[noo++] = o;
-			return true;
-		}
-		return false;
+	public abstract double specialDiscount(); //gives a discount based on the type of the book and other factors
+	
+	public double  discount(int percent) { //gives a discount by percent
+		return price * (percent/100);
+	}
+	//i made both of the methods double because the price is double so we son't have to cast anything
+	//remove this comment later**
+	
+	public String toString() {
+		return "title: " + title + "  author: " + author + "  publisher: "+ publisher+ "  price: " + price + "  year: "+ year + "number of copies available: " + noc;
 	}
 	
-	
-	
-	//an array with all the orders that were ever made
-	/* methods that will be added later(not complete)
-	add book
-	add order
-	remove order 
-	remove book
-	search
-	
-	*/
+	//setters and getters
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public int getNoc() {
+		return noc;
+	}
+
+	public void setNoc(int noc) {
+		this.noc = noc;
+	}
+	
 }
