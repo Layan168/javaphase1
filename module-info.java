@@ -1,3 +1,3 @@
-
+package project;
 class finction {
 }
