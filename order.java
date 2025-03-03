@@ -16,10 +16,14 @@ public class order {
 	
 	public boolean addItem (books a) { //check if this is the right way to add up the price
 		if (numOfItems < orderItems.length) {
+			if (a.getNoc() >0) {
 			orderItems[numOfItems] = new books(a); //composition but it doesn't work!
 			numOfItems++;
 			actualPrice += a.price;
+			a.setNoc() = a.getNoc() - 1;
 			return true;
+			}
+			return false;
 		}
 		return false;
 	}
@@ -28,8 +32,10 @@ public class order {
 		for (int i= 0; i < numOfItems; i++) {//make sure equalsIgnoreCase is the right one
 			if (orderItems[i].title.equalsIgnoreCase(title)) {
 				actualPrice -= orderItems[i].price;
+				orderItems[i].setNoc() = a.getNoc() +1;
 				orderItems[i] = orderItems[numOfItems-1];
 				numOfItems --;
+				
 				return true;
 			}
 		}
