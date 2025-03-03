@@ -1,4 +1,4 @@
-package finction;
+package javaphase1;
 
 public class shortStory extends fiction{
 private int countWord;
