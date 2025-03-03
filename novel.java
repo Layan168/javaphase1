@@ -12,7 +12,7 @@ public void setRecommendedAge(int age){
   public int getRecommendedAge(){
     return recommendedAge;
   }
-  public double Discount(){
+  public double specialDiscount(){
     if(numOfpages>800)
       return 0.25;
     else
@@ -23,5 +23,5 @@ public void setRecommendedAge(int age){
           return 0.10;
   }
   public String toString(){
-    return super.toString()+"recommended Age for novel book"+recommendedAge;
+    return super.toString()+"   recommended Age for novel book"+recommendedAge;
 }
