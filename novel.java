@@ -22,4 +22,6 @@ public void setRecommendedAge(int age){
         if(numOfpages>400)
           return 0.10;
   }
+  public String toString(){
+    return super.toString()+"recommended Age for novel book"+recommendedAge;
 }
