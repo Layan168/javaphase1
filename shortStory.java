@@ -8,7 +8,7 @@ private int countWord;
     countWord= cou;
     
 }
-public double  Discount(){
+public double  specialDiscount(){
   if(countWord>3000)
     return 0.25;
   else
@@ -19,4 +19,4 @@ public double  Discount(){
         return 0.05;
 }
   public String toString(){
-    return super.toString()+"countWord of short Story"+countWord;
+    return super.toString()+"   countWord of short Story:"+countWord;
