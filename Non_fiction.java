@@ -5,9 +5,8 @@ public class Non_fiction {
 	private int yearOfedition;
 	private String language;
 	
-public NOn_fiction(String t,String a,string p,double pr,int y,int noc,String s,int e,String lg) {
+public NOn_fiction(String t,String a,string p,double pr,int y,int noc,int e,String lg) {
 		super(t,a,p,pr,y,noc);
-		subject=s;
 		edition=e;
 	        language=lg;
 	}
