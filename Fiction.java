@@ -20,4 +20,4 @@ public double specialDiscount(){
    genre = Ngenre;
   }
   public boolean isPartOfSeries(){
-    return (!Series.equlas(null));
+    return (!Series.equlas("null"));
