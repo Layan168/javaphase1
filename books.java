@@ -29,7 +29,7 @@ public abstract class books {
 	public abstract double specialDiscount(); //gives a discount based on the type of the book and other factors
 	
 	public double  discount(int percent) { //gives a discount by percent
-		return price * (percent/100);
+		return price - (price * (percent/100));
 	}
 	//i made both of the methods double because the price is double so we son't have to cast anything
 	//remove this comment later**
