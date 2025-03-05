@@ -1,41 +1,75 @@
 package javaphase1;
 
-public class order {
-	public String name; //customer's name
-	public int ID; //customer's id 
-	books orderItems[]; //array with the books the customer wants to purchase
-	public int numOfItems; //number of books the order
-	public double actualPrice; //the price of all the books
+public class library {
+	public String name; //name of the library
+	public String location; //the location of the library
+	public int nob; //number of books in the array
+	public int noo; //number of orders in the array 
+	books inStore []; //array containing all the books in the library
+	order ListOfOrders[]; //contains all orders
 	
-	public order (String n, int id, int size) {
+	public library(String n , String loc) {
 		name = n;
-		ID = id;
-		orderItems = new books [size];
-		numOfItems = 0;
+		location = loc;
+		inStore = new books[500];
+		ListOfOrders = new order[999];
+		nob = 0 ;
+		noo = 0;
 	}
 	
-	public boolean addItem (books a) { //check if this is the right way to add up the price
-		if (numOfItems < orderItems.length) {
-			if (a.getNoc() >0) {
-			orderItems[numOfItems] = new books(a); //composition but it doesn't work!
-			numOfItems++;
-			actualPrice += a.price;
-			a.setNoc() = a.getNoc() - 1;
+	public boolean addBook (books b) { 
+		if (nob < inStore.length) {
+			inStore[nob ++] = b;
 			return true;
-			}
-			return false;
+		}
+		return false;
+		
+	}
+	
+	public boolean addOrder(order o) {
+		if(noo < ListOfOrders.length) {
+			ListOfOrders[noo++] = o;
+			return true;
 		}
 		return false;
 	}
 	
-	public boolean removeItem(String title) {
-		for (int i= 0; i < numOfItems; i++) {//make sure equalsIgnoreCase is the right one
-			if (orderItems[i].title.equalsIgnoreCase(title)) {
-				actualPrice -= orderItems[i].price;
-				orderItems[i].setNoc() = a.getNoc() +1;
-				orderItems[i] = orderItems[numOfItems-1];
-				numOfItems --;
-				
+	
+	public boolean removeOrder (String id) {
+		for(int i = 0 ; i< noo; i++ ) {
+			if (ListOfOrders[i].equals(id)) {
+				ListOfOrders[i] = ListOfOrders[noo - 1];
+				noo--;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean searchOrder (String id) {
+		for (int i = 0 ; i< noo; i++ ) {
+			if (ListOfOrders[i].equals(id))
+				return true;
+		}
+		return false;
+	}
+	
+	
+	
+	public boolean addBook (books a) {
+		if (nob < inStore.length) {
+			inStore[nob] = new books(a); 
+			nob++;
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean removeBook(String title) {
+		for (int i= 0; i < nob; i++) {
+			if (inStore[i].title.equalsIgnoreCase(title)) {
+				inStore[i] = inStore[nob-1];
+				nob --;
 				return true;
 			}
 		}
@@ -43,26 +77,23 @@ public class order {
 		
 	}
 		
-	public boolean searchItem(String title) {
-		for (int i = 0; i <numOfItems; i++) {
-			if (orderItems[i].title.equalsIgnoreCase(title))
+	public boolean searchBook(String title) {
+		for (int i = 0; i <nob; i++) {
+			if (inStore[i].title.equalsIgnoreCase(title))
 				return true;
 		}
 		return false;
 		
 	}
+	
 	
 	public String toString() {
-		String str =" order name: " + name +"  customer's ID: " + ID + "  number of books: " + numOfItems+ "  total pricae: " + actualPrice;
-		str = str + "/n items in the order: /n";
-		for (int i = 0; i< numOfItems; i++) {
-			str = str + orderItems[i].toString();
-			System.out.println();
-			
-		}
+		String str = "library's name: " +  name + " location:" + location;
+		str = str + "/norders: /n" +ListOfOrders.toString();
+		str = str + "/nall books available: /n" + inStore.toString();
 		return str;
-		
 	}
-		
+
+	
 
 }
