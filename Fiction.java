@@ -11,7 +11,7 @@ protected String Series; //part 2 from book gg
    Series = Ser;
 }
 public double specialDiscount(){
-  return  0.0 ;
+  return  price - (price * 0.25) ;
     }
   public String toString(){
     return super.toString()+"     Number Of pages:"+numOfpages+"    genre of finction:"+genre+"    Book Series:"+Series;
