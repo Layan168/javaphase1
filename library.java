@@ -55,16 +55,6 @@ public class library {
 	}
 	
 	
-	
-	public boolean addBook (books a) {
-		if (nob < inStore.length) {
-			inStore[nob] = new books(a); 
-			nob++;
-			return true;
-		}
-		return false;
-	}
-	
 	public boolean removeBook(String title) {
 		for (int i= 0; i < nob; i++) {
 			if (inStore[i].title.equalsIgnoreCase(title)) {
