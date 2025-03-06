@@ -47,14 +47,14 @@ public void setLanguage(String language) {
 	this.language = language;
 }
 
-	public static boolean isTranslated(string language){    // check if book has translation based on the language
+	public static boolean isTranslated(String language){    // check if book has translation based on the language
 	     if(language.equalsIgnoreCase("Arabic"))
 		   return true;
 	     else
 		   return false; 
 	}
 	     
-    public String tostring(){
+    public String toString(){
       return super.toString()+"  language: " +language + "  Edition: "+ edition;
     }
 }
