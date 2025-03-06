@@ -1,23 +1,61 @@
-package finction;
+package javaphase1;
 
-public class Fiction extends books {
-protected int numOfpages; //number of pages in book
-protected String genre;  //suspense-drama-action
-protected String Series; //part 2 from book gg    
-  public Fiction(String t, String a, String p, double pr, int y , int noc, int o, String fic, String Ser){
-    super(t,a,p,pr,y,noc);
-    numOfpages=o;
-    genre = fic;
-   Series = Ser;
+public class Fiction extends Books {
+	protected int numOfpages; //number of pages in book
+	protected String genre;  //suspense-drama-action
+	protected String series; //part 2 from book     
+	  public Fiction(String t, String a, String p, double pr, int y , int noc, int o, String fic, String Ser){
+	    super(t,a,p,pr,y,noc);
+	    numOfpages=o;
+	    genre = fic;
+	    series = Ser;
+	}//a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), a.getNoc(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre, ((Fiction)a).getSeries()
+	  
+	  
+	public double specialDiscount(){
+	  return  price = price - (price * 0.25) ;
+	    }
+	
+	  public String toString(){
+	    return super.toString()+"  Number Of pages: "+numOfpages+" genre of finction: "+genre+"  Book Series: "+series;
+	  }
+	  public void updateGenre(String Ngenre){
+	   genre = Ngenre;
+	  }
+	  public boolean isPartOfSeries(){ //null
+	    return (!series.equals("none" ));
+	  }
+
+
+	public int getNumOfpages() {
+		return numOfpages;
+	}
+
+
+	public void setNumOfpages(int numOfpages) {
+		this.numOfpages = numOfpages;
+	}
+
+
+	public String getGenre() {
+		return genre;
+	}
+
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+
+	public String getSeries() {
+		return series;
+	}
+
+
+	public void setSeries(String series) {
+		this.series = series;
+	}
+	  
+	  
+
 }
-public double specialDiscount(){
-  return  price - (price * 0.25) ;
-    }
-  public String toString(){
-    return super.toString()+"     Number Of pages:"+numOfpages+"    genre of finction:"+genre+"    Book Series:"+Series;
-  }
-  public void updateGenre(String Ngenre){
-   genre = Ngenre;
-  }
-  public boolean isPartOfSeries(){
-    return (!Series.equlas("null"));
