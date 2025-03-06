@@ -106,30 +106,40 @@ public class MainClass {
 				
 			case 2://* search book
 					
-				System.out.println("Enter the book title to search:");
-				String titleToSearch=input.next();
-				if(library1.searchBook(titleToSearch))
-					System.out.println("Book found");
-				else
-					System.out.println("Book not found");
-					
+				System.out.println("Enter the book title to search");
+				String titleToSearch=input.nextLine();
+				 if (library1.searchBook(titleToSearch)) {
+				        System.out.println("Success: The book with the title '" + titleToSearch + "' was found in the library.");
+				    } else {
+				        System.out.println("Sorry: No book found with the title '" + titleToSearch);
+				    }
 				break;
 				
 				
 			case 3://* delete book 
 					
-				System.out.println("Enter the book title to remove:");
-			    String titleToRemove = input.next(); 
-			    if (library1.removeBook(titleToRemove)) { 
-			        System.out.println("Book removed successfully.");
-			    } else {
-			        System.out.println("Book not found.");
-			    }
+			    System.out.println("Enter the book title to remove:");
+			    String titleToRemove = input.nextLine(); 
+			    if (library1.removeBook(titleToRemove)) {
+                            System.out.println("The book with the title '" + titleToRemove + "' has been successfully removed.");
+                            } 
+			   else {
+                           System.out.println("Sorry, no book found with the title '" + titleToRemove + "'.");
+                              }
 			    break;
 				
 			case 4://* show book list
 
-
+                             System.out.println("List of books available in the library:");
+				    if (library1.nob == 0) {
+				        System.out.println("There are no books currently available in the library.");
+				    } else {
+				     System.out.println("Total number of books in the library: " + library1.nob);
+				     for (int i = 0; i < library1.nob; i++) {
+			             System.out.println("Book " + (i + 1) + ": " + library1.inStore[i]);
+				        }
+				    }
+				    }
 
 					
 				break;
