@@ -4,7 +4,25 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		Science book1 = new Science("Chemistry For Dummies", "John T.Moore", "For Dummies", 19.99, 2016, 6, 2, "English", "Chemistry");
+		Science book2 = new Science("The Universe in a Nutshell", "Stephen Hawking", "Bantam Books" , 35.00 , 2001, 5, 1,"Arabic", "Physics");
+		Science book3 = new Science("The Hidden Life of Trees", "Peter Wohlleben", "Greystone Books", 24.95, 2016, 10, 1, "English", "Ecology" );
 		
+		Novel book4 = new Novel("Emma", "Jane Austen", "Penguin Classics", 25.00, 1815, 12, 474, "Comedy of Manners", "none", 14);
+		Novel book5 = new Novel("Jane Eyre", "Charlotte Bronte", "Smith, Elder & Co.", 25.01, 1847,3, 500, "Gothic Fiction", "none", 14 );
+		Novel book6 = new Novel("Scythe", "Neal Shusterman", "Simon & Schuster", 18.99, 2016, 6, 443, "Adventure", "Arc of a Scythe", 12);
+		
+		Fiction book7 = new Fiction("Brown Girl Dreaming", "Jacqueline Woodson", "penguin Group", 10.99, 2014, 8, 336, "Poetry", "none");
+		Fiction book8 = new Fiction("The Little Price", "Antoine de Saint-Exupery", "Reynal & Hitchcock", 11.99, 1943, 20, 96, "Novella", "none");
+		Fiction book9 = new Fiction("New Kid", "Jerry Craft", "HarperCollins", 12.99, 2019, 10, 256, "Graphic novel", "New Kid series" );
+		
+		ShortStory book10 = new ShortStory("The Lottery", "Shirley Jackson", "The New Yorker", 10.00, 1984, 4, 9, "Horror", "none", 3400);
+		ShortStory book11 = new ShortStory("The Gift of the Magi", "O. Henry", "he New York Sunday World", 4.00, 1905, 6, 5, "Romance", "none", 2100);
+		ShortStory book12 = new ShortStory("A Sound of Thunder" + "Ray Bradbury", "Collier’s", 13.09, 1952, 4, 15, "Thriller", "none", 4200);
+		
+		NonFiction book13 = new NonFiction("The Power of Habit", "Charles Duhigg", "Random House", 89.00, 2012, 9, 1,"English");
+		NonFiction book14 = new NonFiction("Start with Why", "Simon Sinek","Portfolio", 103.24, 2008, 12, 1, "Arabic");
+		NonFiction book15 = new NonFiction("The Wright Brothers", "David McCullough", "Simon & Schuster", 38.00, 2015, 23, 1, "English");
 		//12 books, non fiction, fiction, short stpry, novel, science (4 books)
 		 
 		 
