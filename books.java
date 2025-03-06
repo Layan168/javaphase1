@@ -1,6 +1,6 @@
 package javaphase1;
 
-public abstract class books {
+public abstract class Books {
 	protected String title; //title of the book
 	protected String author; //author of the book
 	protected double price; //price of the book
@@ -8,7 +8,7 @@ public abstract class books {
 	protected int year; //the year the book was published in
 	protected int noc; //number of copies available
 	
-	public books (String t, String a, String p, double pr, int y, int noc) {
+	public Books (String t, String a, String p, double pr, int y, int noc) {
 	title = t;
 	author = a;
 	publisher = p;
@@ -17,19 +17,11 @@ public abstract class books {
 	this.noc = noc;
 	}
 	
-	public books( books b) { //this might not work for now because it is abstract!
-		title = b.title;
-		author = b.author;
-		publisher = b.publisher;
-		price = b.price;
-		year = b.year;
-		noc = b.noc;
-	}
 	
 	public abstract double specialDiscount(); //gives a discount based on the type of the book and other factors
 	
 	public double  discount(int percent) { //gives a discount by percent
-		return price - (price * (percent/100));
+		return price * (percent/100);
 	}
 	//i made both of the methods double because the price is double so we son't have to cast anything
 	//remove this comment later**
