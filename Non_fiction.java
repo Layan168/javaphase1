@@ -1,22 +1,19 @@
-package project;
-import java.util.Scanner;
-public class Non_fiction {
+package javaphase1;
+
+public class NonFiction extends Books {
+	protected int edition;
+	protected String language;
 	
-	private int yearOfedition;
-	private String language;
-	
-public NOn_fiction(String t,String a,string p,double pr,int y,int noc,int e,String lg) {
+	public NonFiction(String t,String a, String p,double pr,int y,int noc,int e,String lg) {
 		super(t,a,p,pr,y,noc);
 		edition=e;
-	        language=lg;
+	    language=lg;
 	}
+	
   
   public double specialDiscount(){
-	Scanner input=new Scanner.(system.in);
-	  System.out.println("Please enter the current year:");
-	  int currentYear=input.nextInt();
-	  
-	  int ageOfEdition=currentYear-yearOfedition;
+	  int currentYear = 2024;
+	  int ageOfEdition= currentYear-edition;
 	  double discountPercentage=0;
 	  if(ageOfEdition<=1)
 		 discountPercentage=0.05;
@@ -29,17 +26,35 @@ public NOn_fiction(String t,String a,string p,double pr,int y,int noc,int e,Stri
 	  else
 		 discountPercentage=0.20;
 	 
-	 double discountValue=getPrice()* discountPercentage;
-	  return getPrice()-discountValue;
+	 double discountValue= price * discountPercentage;
+	  return price = price -discountValue;
+  }
 	  
 	  
-     public void isTranslated(){    // check if book has translation based on the language
-	     if(language.equalsIgnoreCase("English")||language.equalsIgnoreCase("Arabic")||language.equalsIgnoreCase("French"))
+     public int getEdition() {
+	return edition;
+}
+
+public void setEdition(int edition) {
+	this.edition = edition;
+}
+
+public String getLanguage() {
+	return language;
+}
+
+public void setLanguage(String language) {
+	this.language = language;
+}
+
+	public void isTranslated(){    // check if book has translation based on the language
+	     if(language.equalsIgnoreCase("English")||language.equalsIgnoreCase("Arabic"))//only arabic
 		     System.out.println("Yes,it has translation.");
 	     else
 		    System.out.println("Unfortunately,it doesn’t have translation.");  
-
+	}
 	     
     public String tostring(){
-      return super.toString()+", Subject:"+subject+", Edition:"+edition;
+      return super.toString()+"  language: " +language + "  Edition: "+ edition;
+    }
 }
