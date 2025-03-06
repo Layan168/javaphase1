@@ -1,23 +1,23 @@
 package javaphase1;
 
-public class library {
+public class Library {
 	public String name; //name of the library
 	public String location; //the location of the library
 	public int nob; //number of books in the array
 	public int noo; //number of orders in the array 
-	books inStore []; //array containing all the books in the library
-	order ListOfOrders[]; //contains all orders
+	Books inStore []; //array containing all the books in the library
+	Order ListOfOrders[]; //contains all orders
 	
-	public library(String n , String loc) {
+	public Library(String n , String loc, int maxOrders) {
 		name = n;
 		location = loc;
-		inStore = new books[500];
-		ListOfOrders = new order[999];
+		inStore = new Books[500];
+		ListOfOrders = new Order[maxOrders];
 		nob = 0 ;
 		noo = 0;
 	}
 	
-	public boolean addBook (books b) { 
+	public boolean addBook (Books b) { //same title?
 		if (nob < inStore.length) {
 			inStore[nob ++] = b;
 			return true;
@@ -26,7 +26,7 @@ public class library {
 		
 	}
 	
-	public boolean addOrder(order o) {
+	public boolean addOrder(Order o) {
 		if(noo < ListOfOrders.length) {
 			ListOfOrders[noo++] = o;
 			return true;
@@ -59,7 +59,7 @@ public class library {
 		for (int i= 0; i < nob; i++) {
 			if (inStore[i].title.equalsIgnoreCase(title)) {
 				inStore[i] = inStore[nob-1];
-				nob --;
+				inStore[nob--] = null;
 				return true;
 			}
 		}
@@ -75,6 +75,8 @@ public class library {
 		return false;
 		
 	}
+	
+	
 	
 	
 	public String toString() {
