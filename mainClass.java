@@ -109,9 +109,9 @@ public class MainClass {
 				System.out.println("Enter the book title to search:");
 				String titleToSearch=input.next();
 				if(library1.searchBook(titleToSearch))
-					System.out.println("book found");
+					System.out.println("Book found");
 				else
-					System.out.println("book not found");
+					System.out.println("Book not found");
 					
 				break;
 				
