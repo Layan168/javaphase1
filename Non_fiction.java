@@ -7,7 +7,7 @@ public class NonFiction extends Books {
 	public NonFiction(String t,String a, String p,double pr,int y,int noc,int e,String lg) {
 		super(t,a,p,pr,y,noc);
 		edition=e;
-	    language=lg;
+	        language=lg;
 	}
 	
   
@@ -47,11 +47,11 @@ public void setLanguage(String language) {
 	this.language = language;
 }
 
-	public void isTranslated(){    // check if book has translation based on the language
-	     if(language.equalsIgnoreCase("English")||language.equalsIgnoreCase("Arabic"))//only arabic
-		     System.out.println("Yes,it has translation.");
+	public static boolean isTranslated(string language){    // check if book has translation based on the language
+	     if(language.equalsIgnoreCase("Arabic"))
+		   return true;
 	     else
-		    System.out.println("Unfortunately,it doesn’t have translation.");  
+		   return false; 
 	}
 	     
     public String tostring(){
