@@ -4,6 +4,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		
 		Science book1 = new Science("Chemistry For Dummies", "John T.Moore", "For Dummies", 19.99, 2016, 6, 2, "English", "Chemistry");
 		Science book2 = new Science("The Universe in a Nutshell", "Stephen Hawking", "Bantam Books" , 35.00 , 2001, 5, 1,"Arabic", "Physics");
 		Science book3 = new Science("The Hidden Life of Trees", "Peter Wohlleben", "Greystone Books", 24.95, 2016, 10, 1, "English", "Ecology" );
@@ -84,19 +85,53 @@ public class MainClass {
 			switch(ch) {//main menu
 			//for library
 			case 1: //* add book
-				
+					
+			        library1.addBook(book1);
+			      	library1.addBook(book2);
+			      	library1.addBook(book3);
+			      	library1.addBook(book4);
+			      	library1.addBook(book5);
+			      	library1.addBook(book6);
+			      	library1.addBook(book7);
+			      	library1.addBook(book8);
+			      	library1.addBook(book9);
+			      	library1.addBook(book10);
+			      	library1.addBook(book11);
+			      	library1.addBook(book12);
+			      	library1.addBook(book13);
+			      	library1.addBook(book14);
+			      	library1.addBook(book15);
+
 				break;
 				
 			case 2://* search book
-				
+					
+				System.out.println("Enter the book title to search:");
+				String titleToSearch=input.next();
+				if(library1.searchBook(title))
+					System.out.println("book found");
+				else
+					System.out.println("book not found");
+					
 				break;
+				
 				
 			case 3://* delete book 
-				
-				break;
+					
+				System.out.println("Enter the book title to remove:");
+			    String titleToRemove = input.next(); 
+			    if (library1.removeBook(titleToRemove)) { 
+			        System.out.println("Book removed successfully.");
+			    } else {
+			        System.out.println("Book not found.");
+			    }
+			    break;
 				
 			case 4://* show book list
-				
+
+
+
+					
 				break;
 				
 			//for orders
