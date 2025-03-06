@@ -85,8 +85,10 @@ public class MainClass {
 			switch(ch) {//main menu
 			//for library
 			case 1: //* add book
-					
-			        library1.addBook(book1);
+				 if (library1.nob >= library1.inStore.length) {
+				        System.out.println("The library is full, cannot add more books.");
+				 } else {
+			      	library1.addBook(book1);
 			      	library1.addBook(book2);
 			      	library1.addBook(book3);
 			      	library1.addBook(book4);
@@ -101,6 +103,10 @@ public class MainClass {
 			      	library1.addBook(book13);
 			      	library1.addBook(book14);
 			      	library1.addBook(book15);
+			      	
+			      	 System.out.println("Books added successfully.");
+			      	 }	
+			       
 
 				break;
 				
