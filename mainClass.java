@@ -92,9 +92,91 @@ public class MainClass {
 			
 			ch = input.nextInt();
 			switch(ch) {//main menu
+					
 			//for library
 			case 1: //* add book
+                          
+    System.out.println("Enter the type of book you want to add: ");
+    System.out.println("1- Science Book");
+    System.out.println("2- Novel");
+    System.out.println("3- Fiction");
+    System.out.println("4- Short Story");
+    System.out.println("5- Non-Fiction");
+    
+    int bookType = input.nextInt();
+    
+    String title, author, publisher, language;
+    double price;
+    int year, pages, orderId;
 
+    // Ask for common book details
+    System.out.println("Enter the title of the book:");
+    title = input.nextLine();
+    System.out.println("Enter the author of the book:");
+    author = input.nextLine();
+    System.out.println("Enter the publisher of the book:");
+    publisher = input.nextLine();
+    System.out.println("Enter the price of the book:");
+    price = input.nextDouble();
+    System.out.println("Enter the publication year:");
+    year = input.nextInt();
+    System.out.println("Enter the number of pages:");
+    pages = input.nextInt();
+    input.nextLine();  
+    System.out.println("Enter the language of the book:");
+    language = input.nextLine();
+    
+    switch (bookType) {
+        case 1:  // Adding a Science book
+            System.out.println("Enter the scientific field:");
+            String scientificField = input.nextLine();
+            Science newScienceBook = new Science(title, author, publisher, price, year, noc, 2025, language, scientificField);
+            library1.addBook(newScienceBook);
+            System.out.println("Science book has been added successfully!");
+            break;
+        
+        case 2:  // Adding a Novel
+            System.out.println("Enter the genre of the novel:");
+            String genre = input.nextLine();
+            System.out.println("Enter the novel series:");
+            String series = input.nextLine();
+            System.out.println("Enter the number of chapters:");
+            int chapters = input.nextInt();
+            Novel newNovel = new Novel(title, author, publisher, price, year, pages, chapters, genre, series, 14);
+            library1.addBook(newNovel);
+            System.out.println("Novel has been added successfully!");
+            break;
+
+        case 3:  // Adding a Fiction book
+            System.out.println("Enter the genre of the fiction book:");
+            String fictionGenre = input.nextLine();
+            System.out.println("Enter the series:");
+            String fictionSeries = input.nextLine();
+            Fiction newFictionBook = new Fiction(title, author, publisher, price, year, pages, 336, fictionGenre, fictionSeries);
+            library1.addBook(newFictionBook);
+            System.out.println("Fiction book has been added successfully!");
+            break;
+        
+        case 4:  // Adding a Short Story
+            System.out.println("Enter the genre of the short story:");
+            String shortStoryGenre = input.nextLine();
+            System.out.println("Enter the number of words in the story:");
+            int wordCount = input.nextInt();
+            ShortStory newShortStory = new ShortStory(title, author, publisher, price, year, pages, wordCount, shortStoryGenre, "none", wordCount);
+            library1.addBook(newShortStory);
+            System.out.println("Short story has been added successfully!");
+            break;
+        
+        case 5:  // Adding a Non-Fiction book
+            NonFiction newNonFictionBook = new NonFiction(title, author, publisher, price, year, pages, 2023, language);
+            library1.addBook(newNonFictionBook);
+            System.out.println("Non-Fiction book has been added successfully!");
+            break;
+        
+        default:
+            System.out.println("Invalid option selected for book type.");
+    }
+    break;
 
 
 					
