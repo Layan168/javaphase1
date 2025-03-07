@@ -67,6 +67,24 @@ public class Order {
 		
 	}
 	
+	public double addDiscount(int pr) {
+		double tpr = 0;
+		for (int i = 0; i <numOfItems; i++) {
+			tpr = tpr + orderItems[i].discount(pr);
+			
+		}
+		return tpr;
+	}
+	
+	public double addSpecialDiscount() {
+		double tpr = 0;
+		for (int i = 0; i <numOfItems; i++) {
+			tpr = tpr + orderItems[i].specialDiscount();
+		}
+		
+		return tpr;
+	}
+	
 	public String toString() {
 		String str =" order name: " + name +"  customer's ID: " + ID + "  number of books: " + numOfItems ;
 		str = str + "/n items in the order: /n";
@@ -75,6 +93,7 @@ public class Order {
 			System.out.println();
 			
 		}
+		
 		double totalPrice = 0.0;
 		str = str + "/n total price: ";
 		for (int i = 0; i< numOfItems; i++) {
