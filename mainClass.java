@@ -140,9 +140,9 @@ public class MainClass {
             String genre = input.nextLine();
             System.out.println("Enter the novel series:");
             String series = input.nextLine();
-            System.out.println("Enter the number of chapters:");
-            int chapters = input.nextInt();
-            Novel newNovel = new Novel(title, author, publisher, price, year, pages, chapters, genre, series, 14);
+            System.out.println("Enter the number of pages:");
+            int page = input.nextInt();
+            Novel newNovel = new Novel(title, author, publisher, price, year, pages, page, genre, series);
             library1.addBook(newNovel);
             System.out.println("Novel has been added successfully!");
             break;
@@ -152,7 +152,7 @@ public class MainClass {
             String fictionGenre = input.nextLine();
             System.out.println("Enter the series:");
             String fictionSeries = input.nextLine();
-            Fiction newFictionBook = new Fiction(title, author, publisher, price, year, pages, 336, fictionGenre, fictionSeries);
+            Fiction newFictionBook = new Fiction(title, author, publisher, price, year, pages,  fictionGenre, fictionSeries);
             library1.addBook(newFictionBook);
             System.out.println("Fiction book has been added successfully!");
             break;
@@ -162,13 +162,13 @@ public class MainClass {
             String shortStoryGenre = input.nextLine();
             System.out.println("Enter the number of words in the story:");
             int wordCount = input.nextInt();
-            ShortStory newShortStory = new ShortStory(title, author, publisher, price, year, pages, wordCount, shortStoryGenre, "none", wordCount);
+            ShortStory newShortStory = new ShortStory(title, author, publisher, price, year, pages, wordCount, shortStoryGenre, wordCount);
             library1.addBook(newShortStory);
             System.out.println("Short story has been added successfully!");
             break;
         
         case 5:  // Adding a Non-Fiction book
-            NonFiction newNonFictionBook = new NonFiction(title, author, publisher, price, year, pages, 2023, language);
+            NonFiction newNonFictionBook = new NonFiction(title, author, publisher, price, year, pages, 2025, language);
             library1.addBook(newNonFictionBook);
             System.out.println("Non-Fiction book has been added successfully!");
             break;
