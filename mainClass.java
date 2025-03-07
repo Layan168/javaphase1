@@ -133,15 +133,143 @@ public class MainClass {
 				
 			//for orders
 			case 5: //$ buy book(add order)
-				
+				 int c;
+         System.out.println("to make new order");
+          System.out.println("the number of books the customer wants to purchase");
+           int size = input.nextInt();
+         Books[] orderItem;
+         orderItem = new orderItem[size];
+         
+          System.out.println("enter customer name");
+         String nm = input.nextLine();
+         input.nextLine();
+          System.out.println("enter customer id");
+          int ii = input.nextInt();
+           Books[] orderItems = new Order(nm,ii,size);
+           do{
+           System.out.println("to add new Item in order enter 1 to exite enter 0");
+           c = input.nextInt();
+         switch(c){
+         case 1:
+			 if(orderItems.addItem)
+        System.out.println("your adding is successful");
+        else
+        Suystem.out.println("the order Items is full! sorry");
+           break;
+         case 2:
+         break;
+         }
+			}while(c != 0);
+
 				break;
 				
 			case 6://$ add discount(nromal discout)
-				
+			System.out.println("add percent that you want to discount");
+          int  dp= input.nexInt();
+          int xx;
+          do{
+          System.out.println("enter number that you want to see after the discount for these books");
+          System.out.println("1- discount for book1");
+          System.out.println("2- discount for book2");
+          System.out.println("3- discount for book3");
+          System.out.println("4- discount for book4");
+          System.out.println("5- discount for book5");
+          System.out.println("6- discount for book6");
+          System.out.println("7- discount for book7");
+          System.out.println("8- discount for book8");
+          System.out.println("9- discount for book9");
+          System.out.println("10- discount for book10");
+          System.out.println("11- discount for book11");
+          System.out.println("12- discount for book12");
+          System.out.println("13- discount for book13");
+          System.out.println("14- discount for book14");
+          System.out.println("15- discount for book15");
+          System.out.println("0- to exite");
+          xx = input.nextInt();
+          switch(xx){
+          case 0: 
+				break;
+          case 1: book1.discount(dp);
+				break;
+          case 2: book2.discount(dp);
+				break;  
+          case 3: book3.discount(dp);
+				break;  
+          case 4: book4.discount(dp);
+				break;  
+			 case 5: book5.discount(dp);
+				break;
+            case 6: book6.discount(dp);
+				break;
+            case 7: book7.discount(dp);
+				break;
+            case 8: book8.discount(dp);
+				break;
+            case 9: book9.discount(dp);
+				break;
+            case 10: book10.discount(dp);
+				break;
+            case 11: book11.discount(dp);
+				break;
+            case 12: book12.discount(dp);
+				break;
+            case 13: book13.discount(dp);
+				break;
+            case 14: book14.discount(dp);
+				break;
+            case 15: book15.discount(dp);
+				break;
+            }while(xx !=0);
+	
 				break;
 				
 			case 7://$ add special discount
-				
+				int gr;
+         do{
+         System.out.println("choose one to see the special discount");	
+         System.out.println("1- fiction");	
+         System.out.println("2- non Fiction");
+         System.out.println("3-Short Story");
+         System.out.println("4-novel");	
+         System.out.println("5-Science");
+          System.out.println("6- to exite");	
+          gr = input.nexInt();
+          switch(gr){
+          case 1:
+          System.out.println("for book 7"+book7.specalDescount());
+          System.out.println("for book 8"+book8.specalDescount());
+          System.out.println("for book 9"+book9.specalDescount());
+             break;
+          case 2:
+          System.out.println("for book 13"+book13.specalDescount());
+          System.out.println("for book 14"+book14.specalDescount());
+          System.out.println("for book 15"+book15.specalDescount());
+          break;
+          
+          case 3:
+           System.out.println("for book 10"+book10.specalDescount());
+          System.out.println("for book 11"+book11.specalDescount());
+          System.out.println("for book 12"+book12.specalDescount());
+          break;
+
+          case 4: 
+           System.out.println("for book 4"+book4.specalDescount());
+          System.out.println("for book 5"+book5.specalDescount());
+          System.out.println("for book 6"+book6.specalDescount());
+          break;
+
+          case 5:
+           System.out.println("for book 1"+book1.specalDescount());
+          System.out.println("for book 2"+book2.specalDescount());
+          System.out.println("for book 3"+book3.specalDescount());
+          break;
+
+          
+          case 6:			
+				break;
+             }
+            }while(gr !=6 );
+
 				break;
 				
 			case 8: //__ search inside order
@@ -161,7 +289,7 @@ public class MainClass {
 				break;
 			
 			case 12: //$ show order list
-				
+				Order.toString();
 				break;
 				
 			case 13: //exit
