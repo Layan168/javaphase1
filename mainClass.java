@@ -5,9 +5,9 @@ public class MainClass {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		Science book1 = new Science("Chemistry For Dummies", "John T.Moore", "For Dummies", 19.99, 2016, 6, 2, "English", "Chemistry");
-		Science book2 = new Science("The Universe in a Nutshell", "Stephen Hawking", "Bantam Books" , 35.00 , 2001, 5, 1,"Arabic", "Physics");
-		Science book3 = new Science("The Hidden Life of Trees", "Peter Wohlleben", "Greystone Books", 24.95, 2016, 10, 1, "English", "Ecology" );
+		Science book1 = new Science("Chemistry For Dummies", "John T.Moore", "For Dummies", 19.99, 2016, 6, 2023, "English", "Chemistry");
+		Science book2 = new Science("The Universe in a Nutshell", "Stephen Hawking", "Bantam Books" , 35.00 , 2001, 5, 2001,"Arabic", "Physics");
+		Science book3 = new Science("The Hidden Life of Trees", "Peter Wohlleben", "Greystone Books", 24.95, 2016, 10, 2018, "English", "Ecology" );
 		
 		Novel book4 = new Novel("Emma", "Jane Austen", "Penguin Classics", 25.00, 1815, 12, 474, "Comedy of Manners", "none", 14);
 		Novel book5 = new Novel("Jane Eyre", "Charlotte Bronte", "Smith, Elder & Co.", 25.01, 1847,3, 500, "Gothic Fiction", "none", 14 );
@@ -19,14 +19,28 @@ public class MainClass {
 		
 		ShortStory book10 = new ShortStory("The Lottery", "Shirley Jackson", "The New Yorker", 10.00, 1984, 4, 9, "Horror", "none", 3400);
 		ShortStory book11 = new ShortStory("The Gift of the Magi", "O. Henry", "he New York Sunday World", 4.00, 1905, 6, 5, "Romance", "none", 2100);
-		ShortStory book12 = new ShortStory("A Sound of Thunder" + "Ray Bradbury", "Collier’s", 13.09, 1952, 4, 15, "Thriller", "none", 4200);
+		ShortStory book12 = new ShortStory("A Sound of Thunder" , "Ray Bradbury", "Collier’s", 13.09, 1952, 4, 15, "Thriller", "none", 4200);
 		
-		NonFiction book13 = new NonFiction("The Power of Habit", "Charles Duhigg", "Random House", 89.00, 2012, 9, 1,"English");
-		NonFiction book14 = new NonFiction("Start with Why", "Simon Sinek","Portfolio", 103.24, 2008, 12, 1, "Arabic");
-		NonFiction book15 = new NonFiction("The Wright Brothers", "David McCullough", "Simon & Schuster", 38.00, 2015, 23, 1, "English");
-		//12 books, non fiction, fiction, short stpry, novel, science (4 books)
-		 
-		 
+		NonFiction book13 = new NonFiction("The Power of Habit", "Charles Duhigg", "Random House", 89.00, 2012, 9, 2024,"English");
+		NonFiction book14 = new NonFiction("Start with Why", "Simon Sinek","Portfolio", 103.24, 2008, 12, 2016, "Arabic");
+		NonFiction book15 = new NonFiction("The Wright Brothers", "David McCullough", "Simon & Schuster", 38.00, 2015, 23, 2017, "English");
+		Library library1 = new Library("Reader's corner", "Riyadh", 999);
+		
+		library1.addBook(book1);
+		library1.addBook(book2);
+		library1.addBook(book3);
+		library1.addBook(book4);
+		library1.addBook(book5);
+		library1.addBook(book6);
+		library1.addBook(book7);
+		library1.addBook(book8);
+		library1.addBook(book9);
+		library1.addBook(book10);
+		library1.addBook(book11);
+		library1.addBook(book12);
+		library1.addBook(book13);
+		library1.addBook(book14);
+		library1.addBook(book15);
 		 
 		 
 		 //insert library name
@@ -52,13 +66,7 @@ public class MainClass {
 			//exit system.exit(0);
 			
 		
-		System.out.println("Enter library name:");
-		String name = input.next();
-		System.out.println("Enter the location: ");
-		String location = input.next();
-		System.out.println("Enter the amount of orders you will take");
-		int maxOrders = input.nextInt();
-		Library library1 = new Library(name, location, maxOrders);
+	
 		
 		int ch =0;
 		do {// main loop
@@ -72,14 +80,15 @@ public class MainClass {
 			System.out.println(" ");
 			System.out.println("managing the orders: ");
 			System.out.println("5- buy a book ");
-			System.out.println("6- add discount to an order ");
-			System.out.println("7- add a special discount to an order ");
-			System.out.println("8- search inside an order ");
-			System.out.println("9- search for an order ");
-			System.out.println("10- delete an item from an order ");
-			System.out.println("11- delete an order ");
-			System.out.println("12- show all orders ");
-			System.out.println("13- exit ");
+			System.out.println("6- add a book to an order");
+			System.out.println("7- add discount to an order ");
+			System.out.println("8- add a special discount to an order ");
+			System.out.println("9- search inside an order ");
+			System.out.println("10- search for an order ");
+			System.out.println("11- delete an item from an order ");
+			System.out.println("12- delete an order ");
+			System.out.println("13- show all orders ");
+			System.out.println("14- exit ");
 			
 			ch = input.nextInt();
 			switch(ch) {//main menu
@@ -95,11 +104,9 @@ public class MainClass {
 					
 				System.out.println("Enter the book title to search");
 				String titleToSearch=input.nextLine();
-				 if (library1.searchBook(titleToSearch)) {
-				        System.out.println("Success: The book with the title '" + titleToSearch + "' was found in the library.");
-				    } else {
-				        System.out.println("Sorry: No book found with the title '" + titleToSearch);
-				    }
+				library1.searchBook(titleToSearch);
+				if(library1.searchBook(titleToSearch) == null)
+				System.out.println("book is not in the system");      
 				break;
 				
 				
@@ -126,173 +133,120 @@ public class MainClass {
 			             System.out.println("Book " + (i + 1) + ": " + library1.inStore[i]);
 				        }
 				    }
-				    }
+				    
 
 					
 				break;
 				
-			//for orders
-			case 5: //$ buy book(add order)
-				 int c;
-         System.out.println("to make new order");
-          System.out.println("the number of books the customer wants to purchase");
-           int size = input.nextInt();
-         Books[] orderItem;
-         orderItem = new orderItem[size];
-         
-          System.out.println("enter customer name");
-         String nm = input.nextLine();
-         input.nextLine();
-          System.out.println("enter customer id");
-          int ii = input.nextInt();
-           Books[] orderItems = new Order(nm,ii,size);
-           do{
-           System.out.println("to add new Item in order enter 1 to exite enter 0");
-           c = input.nextInt();
-         switch(c){
-         case 1:
-			 if(orderItems.addItem)
-        System.out.println("your adding is successful");
-        else
-        Suystem.out.println("the order Items is full! sorry");
-           break;
-         case 2:
-         break;
-         }
-			}while(c != 0);
+			 //for orders
+			 case 5: //$ buy book(add order)
+				 
+				 System.out.println("to make new order");
+				 System.out.println("enter the number of books the customer wants to purchase");
+				 int size = input.nextInt();
 
-				break;
-				
-			case 6://$ add discount(nromal discout)
-			System.out.println("add percent that you want to discount");
-          int  dp= input.nexInt();
-          int xx;
-          do{
-          System.out.println("enter number that you want to see after the discount for these books");
-          System.out.println("1- discount for book1");
-          System.out.println("2- discount for book2");
-          System.out.println("3- discount for book3");
-          System.out.println("4- discount for book4");
-          System.out.println("5- discount for book5");
-          System.out.println("6- discount for book6");
-          System.out.println("7- discount for book7");
-          System.out.println("8- discount for book8");
-          System.out.println("9- discount for book9");
-          System.out.println("10- discount for book10");
-          System.out.println("11- discount for book11");
-          System.out.println("12- discount for book12");
-          System.out.println("13- discount for book13");
-          System.out.println("14- discount for book14");
-          System.out.println("15- discount for book15");
-          System.out.println("0- to exite");
-          xx = input.nextInt();
-          switch(xx){
-          case 0: 
-				break;
-          case 1: book1.discount(dp);
-				break;
-          case 2: book2.discount(dp);
-				break;  
-          case 3: book3.discount(dp);
-				break;  
-          case 4: book4.discount(dp);
-				break;  
-			 case 5: book5.discount(dp);
-				break;
-            case 6: book6.discount(dp);
-				break;
-            case 7: book7.discount(dp);
-				break;
-            case 8: book8.discount(dp);
-				break;
-            case 9: book9.discount(dp);
-				break;
-            case 10: book10.discount(dp);
-				break;
-            case 11: book11.discount(dp);
-				break;
-            case 12: book12.discount(dp);
-				break;
-            case 13: book13.discount(dp);
-				break;
-            case 14: book14.discount(dp);
-				break;
-            case 15: book15.discount(dp);
-				break;
-            }while(xx !=0);
-	
-				break;
-				
-			case 7://$ add special discount
-				int gr;
-         do{
-         System.out.println("choose one to see the special discount");	
-         System.out.println("1- fiction");	
-         System.out.println("2- non Fiction");
-         System.out.println("3-Short Story");
-         System.out.println("4-novel");	
-         System.out.println("5-Science");
-          System.out.println("6- to exite");	
-          gr = input.nexInt();
-          switch(gr){
-          case 1:
-          System.out.println("for book 7"+book7.specalDescount());
-          System.out.println("for book 8"+book8.specalDescount());
-          System.out.println("for book 9"+book9.specalDescount());
-             break;
-          case 2:
-          System.out.println("for book 13"+book13.specalDescount());
-          System.out.println("for book 14"+book14.specalDescount());
-          System.out.println("for book 15"+book15.specalDescount());
-          break;
+				 System.out.println("enter customer name");
+				 String nm = input.nextLine();
           
-          case 3:
-           System.out.println("for book 10"+book10.specalDescount());
-          System.out.println("for book 11"+book11.specalDescount());
-          System.out.println("for book 12"+book12.specalDescount());
-          break;
+        
+				 System.out.println("enter customer id");
+				 int id = input.nextInt();
+				 
+				 Order custOrder = (Order) new Order(nm,id,size);
+				 String bookt;
+				 do {
+				 System.out.println("enter book title");
+				 System.out.println("type stop to stop adding");
+				 bookt = input.next();
+				 if(custOrder.addItem(library1.searchBook(bookt)))
+					 System.out.println("book was added");
+				 else
+					 System.out.println("book was not added");
+				 
+				 }while(bookt != "stop");
 
-          case 4: 
-           System.out.println("for book 4"+book4.specalDescount());
-          System.out.println("for book 5"+book5.specalDescount());
-          System.out.println("for book 6"+book6.specalDescount());
-          break;
-
-          case 5:
-           System.out.println("for book 1"+book1.specalDescount());
-          System.out.println("for book 2"+book2.specalDescount());
-          System.out.println("for book 3"+book3.specalDescount());
-          break;
+				break;
+				
+			 case 6: //(add a book to an already existing order
+				 
+				 
+				 break;
+				
+			case 7://$ add discount(normal discount)
+			System.out.println("enter the percent of the discount");
+			int  d= input.nextInt();
+			System.out.println("enter the order ID");
+			String cusID = input.next();
+			
+			library1.searchOrder(cusID);
+			System.out.println("price after discount: ");
+			library1.searchOrder(cusID).addDiscount(d);
+				break;
+				
+				
+			case 8://$ add special discount
+				System.out.println("enter the order ID");
+				String custID = input.next();
+				
+				library1.searchOrder(custID);
+				System.out.println("price after special discount: ");
+				library1.searchOrder(custID).addSpecialDiscount();
+				break;
 
           
-          case 6:			
+				
+			case 9: //__ search inside order
+				System.out.println("enter the order ID");
+				String orID = input.next();
+				System.out.println("enter the title of the book");
+				String t = input.next();
+				library1.searchOrder(orID);
+				if(library1.searchOrder(orID).searchItem(t))
+					System.out.println("book is in the order");
+				else
+					System.out.println("book is not in the order");
+				
 				break;
-             }
-            }while(gr !=6 );
-
+				
+			case 10: //__ search for an order
+				System.out.println("enter the order ID");
+				String ordID = input.next();
+				if (library1.searchOrder(ordID) == null) 
+					System.out.println("there is not order with such id");
+				else {
+					System.out.println("the order with the id:");
+					System.out.println(library1.searchOrder(ordID));
+				}
 				break;
 				
-			case 8: //__ search inside order
-				
+			case 11: //__ delete order item
+				System.out.println("enter the order ID");
+				String orderID = input.next();
+				System.out.println("enter the title of the book to remove: ");
+				String ti = input.next();
+				if(library1.searchOrder(orderID).removeItem(ti))
+					System.out.println("book is removed from order");
+				else
+					System.out.println("book wasn't removed");
 				break;
-				
-			case 9: //__ search for an order
-				
-				break;
-				
-			case 10: //__ delete order item
 			
-				break;
-			
-			case 11: //__ delete order
+			case 12: //__ delete order
+				System.out.println("enter the order ID");
+				String OrdID = input.next();
+				if(library1.removeOrder(OrdID))
+					System.out.println("order has bee removed");
+				else
+					System.out.println("order wasn't removed");
 				
 				break;
 			
-			case 12: //$ show order list
-				Order.toString();
+			case 13: //$ show order list
+				System.out.println("list of all orders: ");
+				library1.ListOfOrders.toString();
+				
 				break;
 				
-			case 13: //exit
+			case 14: //exit
 				System.out.println("Exiting the system...");
 				System.out.println("See you next time");
 				break;
@@ -303,10 +257,10 @@ public class MainClass {
 			
 			
 			
-			}//end of sweitch for main menu
+			}//end of switch for main menu
 			
 			
-		}while(ch != 13); //end of main loop
+		}while(ch != 14); //end of main loop
 		 
 
 	}
