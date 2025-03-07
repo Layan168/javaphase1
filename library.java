@@ -46,12 +46,12 @@ public class Library {
 		return false;
 	}
 	
-	public boolean searchOrder (String id) {
+	public Order searchOrder (String id) {
 		for (int i = 0 ; i< noo; i++ ) {
 			if (ListOfOrders[i].equals(id))
-				return true;
+				return ListOfOrders[i];
 		}
-		return false;
+		return null;
 	}
 	
 	
@@ -67,12 +67,12 @@ public class Library {
 		
 	}
 		
-	public boolean searchBook(String title) {
+	public Books searchBook(String title) {
 		for (int i = 0; i <nob; i++) {
 			if (inStore[i].title.equalsIgnoreCase(title))
-				return true;
+				return inStore[i];
 		}
-		return false;
+		return null;
 		
 	}
 	
