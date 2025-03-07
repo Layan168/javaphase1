@@ -8,12 +8,12 @@ public class Science extends NonFiction {
 			scientificField = sf;
 		}
 	  
-	     public static boolean checkForExperimentalContent(String scientificField  ) {
-	        if (scientificField.equalsIgnoreCase("Physics") || scientificField.equalsIgnoreCase("chemistry") ) 
-			retrurn true;
-		     else
-			return false;
-	           
+	      
+	     public void checkForExperimentalContent() {
+	        if (scientificField.equalsIgnoreCase("Physics") || scientificField.equalsIgnoreCase("chemistry") ) {
+	            System.out.println("This book contains scientific experiments.");
+	        } else 
+	        	System.out.println("This book doesn't have any scientific experiments");
 	     }
 
 		public String getScientificField() {
