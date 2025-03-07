@@ -168,7 +168,14 @@ public class MainClass {
 				break;
 				
 			 case 6: //(add a book to an already existing order
-				 
+				System.out.println("enter order id");
+				 String cusid = input.next();
+				 System.out.println("enter the title of the book");
+				 String T =  input.next();
+				 if(library1.searchOrder(cusid).addItem(library1.searchBook(T)))
+					 System.out.println("book was added");
+				 else
+					 System.out.println("book was not added"); 
 				 
 				 break;
 				
