@@ -1,9 +1,9 @@
 package javaphase1;
 
 public class Novel extends Fiction {
-	protected int recommendedAge;// less than 18 or for 5 to 9 
-	  public Novel (String t, String a, String p, double pr, int y, int noc, int o , String fic, String ser, int rec){
-	    super(t,a,p,pr,y,noc,o,fic,ser);
+	protected int recommendedAge;
+	  public Novel (String t, String a, String p, double pr, int y, int o , String fic, String ser, int rec){
+	    super(t,a,p,pr,y,o,fic,ser);
 	    recommendedAge = rec;
 	}
 	
