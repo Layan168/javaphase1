@@ -69,6 +69,7 @@ public class Order {
 	public double addDiscount(int pr) {
 		double tpr = 0;
 		for (int i = 0; i <numOfItems; i++) {
+			if (orderItems[i] != null) 
 			tpr = tpr + orderItems[i].discount(pr);
 			
 		}
@@ -79,10 +80,12 @@ public class Order {
 		double tpr = 0;
 		for (int i = 0; i <numOfItems; i++) 
 			if(orderItems[i] instanceof Fiction && !(orderItems[i] instanceof Novel) && !(orderItems[i] instanceof ShortStory)) {
+				((Fiction)orderItems[i]).specialDiscount();
+			}
 				
 		for (int j = 0; j <numOfItems; j++) {
 			tpr = tpr + orderItems[j].price;
-		}}
+		}
 		
 		return tpr;
 	}
@@ -91,10 +94,12 @@ public class Order {
 		double tpr = 0;
 		for (int i = 0; i <numOfItems; i++) 
 			if(orderItems[i] instanceof NonFiction && !(orderItems[i] instanceof Science) ) {
+				((NonFiction)orderItems[i]).specialDiscount();
+			}
 				
 		for (int j = 0; j <numOfItems; j++) {
 			tpr = tpr + orderItems[j].price;
-		}}
+		}
 		
 		return tpr;
 	}
@@ -103,10 +108,12 @@ public class Order {
 		double tpr = 0;
 		for (int i = 0; i <numOfItems; i++) 
 			if(orderItems[i] instanceof Science) {
+				((Science)orderItems[i]).specialDiscount();
+			}
 				
 		for (int j = 0; j <numOfItems; j++) {
 			tpr = tpr + orderItems[j].price;
-		}}
+		}
 		
 		return tpr;
 	}
@@ -115,10 +122,12 @@ public class Order {
 		double tpr = 0;
 		for (int i = 0; i <numOfItems; i++) 
 			if(orderItems[i] instanceof Novel) {
+				((Novel)orderItems[i]).specialDiscount();
+			}
 				
 		for (int j = 0; j <numOfItems; j++) {
 			tpr = tpr + orderItems[j].price;
-		}}
+		}
 		
 		return tpr;
 	}
@@ -127,10 +136,12 @@ public class Order {
 		double tpr = 0;
 		for (int i = 0; i <numOfItems; i++) 
 			if(orderItems[i] instanceof ShortStory) {
+				((ShortStory)orderItems[i]).specialDiscount();
+			}
 				
 		for (int j = 0; j <numOfItems; j++) {
 			tpr = tpr + orderItems[j].price;
-		}}
+		}
 		
 		return tpr;
 	}
