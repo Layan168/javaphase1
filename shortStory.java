@@ -3,8 +3,8 @@ package javaphase1;
 public class ShortStory extends Fiction{
 	protected int countWord;
 
-	  public ShortStory(String t, String a, String p, double pr, int y, int noc, int o, String fic, String ser, int cou){
-	    super(t,a,p,pr,y,noc,o,fic,ser);
+	  public ShortStory(String t, String a, String p, double pr, int y, int o, String fic, String ser, int cou){
+	    super(t,a,p,pr,y,o,fic,ser);
 	    countWord= cou;
 	    
 	}
@@ -21,7 +21,7 @@ public class ShortStory extends Fiction{
 	    	  return price;
 	}
 	  public String toString(){
-	    return super.toString()+"   countWord of short Story:"+countWord;
+	    return super.toString()+"  countWord of short Story: "+countWord;
 	  }
 	  
 	  public int getCountWord() {
