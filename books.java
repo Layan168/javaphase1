@@ -6,15 +6,13 @@ public abstract class Books {
 	protected double price; //price of the book
 	protected String publisher; //publisher of the book
 	protected int year; //the year the book was published in
-	protected int noc; //number of copies available
 	
-	public Books (String t, String a, String p, double pr, int y, int noc) {
+	public Books (String t, String a, String p, double pr, int y) {
 	title = t;
 	author = a;
 	publisher = p;
 	price = pr;
 	year = y;
-	this.noc = noc;
 	}
 	
 	
@@ -23,11 +21,10 @@ public abstract class Books {
 	public double  discount(int percent) { //gives a discount by percent
 		return price * (percent/100);
 	}
-	//i made both of the methods double because the price is double so we son't have to cast anything
-	//remove this comment later**
+	
 	
 	public String toString() {
-		return "title: " + title + "  author: " + author + "  publisher: "+ publisher+ "  price: " + price + "  year: "+ year + "number of copies available: " + noc;
+		return "title: " + title + "  author: " + author + "  publisher: "+ publisher+ "  price: " + price + "  year: "+ year;
 	}
 	
 	//setters and getters
@@ -72,12 +69,5 @@ public abstract class Books {
 		this.year = year;
 	}
 
-	public int getNoc() {
-		return noc;
-	}
-
-	public void setNoc(int noc) {
-		this.noc = noc;
-	}
 	
 }
