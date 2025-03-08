@@ -3,8 +3,8 @@ package javaphase1;
 public class Science extends NonFiction {
 	  protected String scientificField;
 	  
-	  public Science(String t,String a, String p,double pr,int y,int noc,int e,String lg, String sf) {
-			super(t,a,p,pr,y,noc, e, lg);
+	  public Science(String t,String a, String p,double pr,int y,int e,String lg, String sf) {
+			super(t,a,p,pr,y, e, lg);
 			scientificField = sf;
 		}
 	  
