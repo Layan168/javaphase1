@@ -17,7 +17,7 @@ public class Library {
 		noo = 0;
 	}
 	
-	public boolean addBook (Books b) { //same title?
+	public boolean addBook (Books b) { 
 		if (nob < inStore.length) {
 			inStore[nob ++] = b;
 			return true;
@@ -48,7 +48,7 @@ public class Library {
 	
 	public Order searchOrder (String id) {
 		for (int i = 0 ; i< noo; i++ ) {
-			if (ListOfOrders[i].equals(id))
+			if (ListOfOrders[i].ID.equals(id))
 				return ListOfOrders[i];
 		}
 		return null;
@@ -75,7 +75,6 @@ public class Library {
 		return null;
 		
 	}
-	
 	
 	
 	
