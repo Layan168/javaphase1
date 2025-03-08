@@ -9,7 +9,7 @@ public class Fiction extends Books {
 	    numOfpages=o;
 	    genre = fic;
 	    series = Ser;
-	}//a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), a.getNoc(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre, ((Fiction)a).getSeries()
+	}
 	  
 	  
 	public double specialDiscount(){
@@ -22,7 +22,7 @@ public class Fiction extends Books {
 	  public void updateGenre(String Ngenre){
 	   genre = Ngenre;
 	  }
-	  public boolean isPartOfSeries(){ //null
+	  public boolean isPartOfSeries(){ 
 	    return (!series.equals("none" ));
 	  }
 
