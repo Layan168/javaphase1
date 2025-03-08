@@ -37,8 +37,9 @@ public class Library {
 	
 	public boolean removeOrder (String id) {
 		for(int i = 0 ; i< noo; i++ ) {
-			if (ListOfOrders[i].equals(id)) {
+			if (ListOfOrders[i].ID.equals(id)) {
 				ListOfOrders[i] = ListOfOrders[noo - 1];
+				ListOfOrders[noo - 1] = null;
 				noo--;
 				return true;
 			}
