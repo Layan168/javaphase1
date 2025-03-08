@@ -8,7 +8,13 @@ public class Science extends NonFiction {
 			scientificField = sf;
 		}
 	  
-	      
+	     public double specialDiscount() {
+	    	 if (scientificField.equalsIgnoreCase("Ecology")) {
+	    		 price = price -(price * 0.10);
+	    	 }
+	    	 return price;
+	     }
+	  
 	     public void checkForExperimentalContent() {
 	        if (scientificField.equalsIgnoreCase("Physics") || scientificField.equalsIgnoreCase("chemistry") ) {
 	            System.out.println("This book contains scientific experiments.");
