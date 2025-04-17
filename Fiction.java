@@ -19,9 +19,7 @@ public class Fiction extends Books {
 	  public String toString(){
 	    return super.toString()+"  Number Of pages: "+numOfpages+" genre of finction: "+genre+"  Book Series: "+series;
 	  }
-	  public void updateGenre(String Ngenre){
-	   genre = Ngenre;
-	  }
+	  
 	  public boolean isPartOfSeries(){ 
 	    return (!series.equals("none" ));
 	  }
