@@ -15,11 +15,11 @@ public class Science extends NonFiction {
 	    	 return price;
 	     }
 	  
-	     public void checkForExperimentalContent() {
+	     public String checkForExperimentalContent() {
 	        if (scientificField.equalsIgnoreCase("Physics") || scientificField.equalsIgnoreCase("chemistry") ) {
-	            System.out.println("This book contains scientific experiments.");
+	            return "This book contains scientific experiments.";
 	        } else 
-	        	System.out.println("This book doesn't have any scientific experiments");
+	        	return "This book doesn't have any scientific experiments";
 	     }
 
 		public String getScientificField() {
@@ -29,6 +29,10 @@ public class Science extends NonFiction {
 		public void setScientificField(String scientificField) {
 			this.scientificField = scientificField;
 		}
+		
+		public String toString(){
+		    return super.toString() + "  Scientific field: " + scientificField + " does the book have experiments: "+ checkForExperimentalContent();
+		  }
 	     
 	    
 }
