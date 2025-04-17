@@ -69,10 +69,11 @@ public class Order {
 	public double addDiscount(int pr) {
 		double tpr = 0;
 		for (int i = 0; i <numOfItems; i++) {
-			if (orderItems[i] != null) 
+			if (orderItems[i] != null) {
 			tpr = tpr + orderItems[i].discount(pr);
 			
 		}
+      }
 		return tpr;
 	}
 	
