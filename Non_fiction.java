@@ -48,7 +48,7 @@ public void setLanguage(String language) {
 }
 
 //check if book has translation based on the language
-	public boolean isTranslated(String language) {  
+	public boolean isTranslated() {  
 			if (language.equalsIgnoreCase("Arabic"))  
 				return true;  
 			else  
@@ -56,6 +56,6 @@ public void setLanguage(String language) {
 	}
 	     
     public String tostring(){
-      return super.toString()+"  language: " +language + "  Edition's year: "+ edition;
+      return super.toString()+"  language: " +language + "  Edition's year: "+ edition + " is the book translated? " + isTranslated() ;
     }
 }
