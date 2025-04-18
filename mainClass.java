@@ -184,10 +184,14 @@ public class MainClass {
 				System.out.println("Enter the book title to search");
 				String titleToSearch=input.nextLine();
 				
+            try{
+            
 				if(library1.searchBook(titleToSearch) != null)
 				System.out.println("book is in the system"); 
-				else
-					System.out.println("book is not in the system");
+            }
+				catch (BookNotFoundException e) {
+               System.out.println("Book is not in the system");
+             }
 				break;
 				
 				
@@ -248,19 +252,21 @@ public class MainClass {
 				 
 				 if(bookt.equals("stop"))
 					 break;
-				 if(library1.searchBook(bookt) != null) {
-				 if(library1.searchOrder(id) != null) {
-					 custOrder.addItem(library1.searchBook(bookt));
-					 System.out.println("book was added");
-				 		}
-				 	else
-				 		System.out.println("order does not exist");
-				 }
-				 else
-					 System.out.println("book does not exits");
-				 
-				 
-				 }while(!bookt.equalsIgnoreCase("stop"));
+				  try {
+        Books book = library1.searchBook(bookt); // only call once
+
+        if (library1.searchOrder(id) != null) {
+            custOrder.addItem(book);
+            System.out.println("Book was added");
+        } else {
+            System.out.println("Order does not exist");
+        }
+
+    } catch (BookNotFoundException e) {
+        System.out.println("Book does not exist");
+    }
+
+} while (true);
 
 				break;
 				
@@ -271,17 +277,20 @@ public class MainClass {
 				 input.nextLine();
 				 String T =  input.nextLine();
 				 
-				 if(library1.searchBook(T) != null) {
-					 if(library1.searchOrder(cusid) != null) {
-						 library1.searchOrder(cusid).addItem(library1.searchBook(T));
-						 System.out.println("book was added");
-					 		}
-					 	else
-					 		System.out.println("order does not exist");
-					 }
-					 else
-						 System.out.println("book does not exits");
-				 break;
+				 try {
+        Books book = library1.searchBook(T); // may throw
+
+        Order order = library1.searchOrder(cusid); // assuming this returns null if not found
+        if (order != null) {
+            order.addItem(book);
+            System.out.println("Book was added");
+        } else {
+            System.out.println("Order does not exist");
+        }
+
+    } catch (BookNotFoundException e) {
+        System.out.println("Book does not exist");
+    }				 break;
 				
 			case 7://$ add discount(normal discount)
 			System.out.println("enter the percent of the discount");
