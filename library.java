@@ -68,12 +68,12 @@ public class Library {
 		
 	}
 		
-	public Books searchBook(String title) {
+	public Books searchBook(String title) throws BookNotFoundException {
 		for (int i = 0; i <nob; i++) {
 			if (inStore[i].title.equalsIgnoreCase(title))
 				return inStore[i];
 		}
-		return null;
+		throw new BookNotFoundException("the book doesn't exist");
 		
 	}
 	
