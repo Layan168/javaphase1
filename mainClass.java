@@ -45,6 +45,7 @@ public class MainClass {
 		
 		int ch =0;
 		do {// main loop
+			try {
 			System.out.println("welcome to the main menu"); 
 			System.out.println("Enter a number to proceed");
 			System.out.println("managing the library: ");
@@ -457,7 +458,10 @@ public class MainClass {
 			
 			
 			}//end of switch for main menu
-			
+				} catch(InputMismatchException e) {    //Unchecked Exception
+				System.out.println("Invalid input!  please try again.");
+				input.next();
+						}
 			
 		}while(ch != 14); //end of main loop
 		 
