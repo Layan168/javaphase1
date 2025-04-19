@@ -461,6 +461,7 @@ public class MainClass {
 				} catch(InputMismatchException e) {    //Unchecked Exception
 				System.out.println("Invalid input!  please try again.");
 				input.next();
+				ch = 0;
 						}
 			
 		}while(ch != 14); //end of main loop
