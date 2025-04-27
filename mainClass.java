@@ -5,12 +5,12 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-      
+      Library library1 = new Library("Reader's corner", "Riyadh", 999);
       //check if a file exists
       File f = new File("booksInStore.dat");
       File f2 = new File("orders.dat");
       if( f.exists() && f2.exists() ){
-      Library.readAllData();
+      library1.readAllData();}
       
 
       
@@ -34,7 +34,7 @@ public class MainClass {
 		NonFiction book13 = new NonFiction("The Power of Habit", "Charles Duhigg", "Random House", 89.00, 2012, 2024,"English");
 		NonFiction book14 = new NonFiction("Start with Why", "Simon Sinek","Portfolio", 103.24, 2008, 2016, "Arabic");
 		NonFiction book15 = new NonFiction("The Wright Brothers", "David McCullough", "Simon & Schuster", 38.00, 2015, 2017, "English");
-		Library library1 = new Library("Reader's corner", "Riyadh", 999);
+		
 		
 		library1.addBook(book1);
 		library1.addBook(book2);
