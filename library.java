@@ -7,7 +7,49 @@ public class Library {
 	public int noo; //number of orders in the array 
 	Books inStore []; //array containing all the books in the library
 	Order ListOfOrders[]; //contains all orders
-	
+   
+   //we will add two new methods here, one for saving and one for loading
+   //make sure books, order, and node were serializable
+   
+   /* public void savaAllInfo(){
+ try{
+File out = new File("books.dat");
+FileOutputStream fos = new FileOutputStream (out);
+ObjectOutputStream oos = new ObjectOutputStream (fos);
+oos.writeObject( inStore ) ; // this will save all the books that were in the library
+oos.close();
+File out2 = new File("orders.dat");
+FileOutputStream fos2 = new FileOutputStream (out2);
+ObjectOutputStream oos2 = new ObjectOutputStream (fos2);
+oos2.writeInt(numRes);
+oos2.writeObject( ListOfOrders ) ; // saves all the orders with their linked list as well
+oos2.close();
+ } catch( IOException e){
+ System.out.println(e.toString());
+ }
+}*/ 
+
+/*public void readAllData(){ //unedited
+ try{
+File f = new File(fileOutput);
+FileInputStream ff = new FileInputStream( f);
+ObjectInputStream in= new ObjectInputStream(ff) ;
+
+headRoom = (Node ) in.readObject();
+in.close() ;
+File f2 = new File("Reservations.dat");
+FileInputStream ff2 = new FileInputStream( f2);
+ObjectInputStream in2= new ObjectInputStream(ff2) ;
+numRes = in2.readInt() ;
+reservations = (Reservation[]) in2.readObject();
+in2.close() ;
+JOptionPane.showMessageDialog(null , "All data in files are loaded.");
+} catch( ClassNotFoundException ex){ System.out.println(ex.toString()); }
+catch( IOException e){ System.out.println(e.toString());}
+}
+}*/
+
+//the rest of the methods here are supposed to be fine with no changes	
 	public Library(String n , String loc, int maxOrders) {
 		name = n;
 		location = loc;
