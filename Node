@@ -1,0 +1,38 @@
+package phase2;
+import java.io.Serializable;  
+
+public class Node implements Serializable {
+	private Books data ;
+	private Node next ; // self Reference
+	
+	 public Node(Books obj)
+	  {
+	  data = obj ;
+	  next = null ;
+	 }
+	
+	 public void setNext(Node nextPtr)
+	 {
+	 next = nextPtr ;
+	 }
+	
+	 public Node getNext()
+	 {
+	 return next ;
+	 }
+	
+	 public void setData(Books obj)
+	 {
+	 data = obj ;
+	 }
+	
+	 public Books getData()
+	 {
+	 return data ;
+	 }
+	
+	 public String toString()
+	 {
+	 return data.toString() ; 
+	 }
+}
