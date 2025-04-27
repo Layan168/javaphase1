@@ -92,30 +92,22 @@ public class Order {
 		}
 		return false;
 		}
-		
-	
-		
-	public boolean searchItem(String title) {
-   /*public Room searchRoom(int no ){
-    if( headRoom == null )
-    return null ;
 
-    Node current = headRoom ;
-    while(current != null )
-      {
-       if( current.getData().getRoomNo() == no )
-       return current.getData() ;
-         current = current.getNext();
-          }
-          return null ; // if not found
-             }*/
-		for (int i = 0; i <numOfItems; i++) {
-			if (orderItems[i].title.equalsIgnoreCase(title))
-				return true;
-		}
-		return false;
+	
+	public boolean searchItem(String title) {
 		
-	}
+         if (headItem == null)
+    	 return false;
+
+        Node current = headItem;
+        while (current != null) {
+        if (current.getData().getTitle().equalsIgnoreCase(title)) {   
+        return true;}
+        
+        current = current.getNext();
+        }
+        return false;
+        }
 	
 	
 	
