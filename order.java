@@ -116,8 +116,8 @@ public class Order {
       if( headItem == null) //checks if there are items
 			return tpr ; 
       while (current != null) {
-      current.discount(pr);
-      tpr += current.getPrice();
+      current.getData().discount(pr);
+      tpr += current.getData().getPrice();
       current = current.getNext();
       }
 		return tpr;
@@ -131,8 +131,8 @@ public class Order {
 
     // First loop: apply discounts
     while (current != null) {
-        if (current instanceof Fiction) {
-            ((Fiction) current).specialDiscount();
+        if (current.getData() instanceof Fiction) {
+            ((Fiction) current.getData()).specialDiscount();
         }
         current = current.getNext();
     }
@@ -140,7 +140,7 @@ public class Order {
     // Second loop: calculate total price
     Node pointer = headItem; //create a new node to start collecting the price
     while (pointer != null) {
-        tpr += pointer.getPrice();
+        tpr += pointer.getData().getPrice();
         pointer = pointer.getNext();
     }
 
@@ -156,8 +156,8 @@ public class Order {
 
     // First loop: apply discounts
     while (current != null) {
-        if (current instanceof NonFiction) {
-            ((NonFiction) current).specialDiscount();
+        if (current.getData() instanceof NonFiction) {
+            ((NonFiction) current.getData()).specialDiscount();
         }
         current = current.getNext();
     }
@@ -165,7 +165,7 @@ public class Order {
     // Second loop: calculate total price
     Node pointer = headItem; //create a new node to start collecting the price
     while (pointer != null) {
-        tpr += pointer.getPrice();
+        tpr += pointer.getData().getPrice();
         pointer = pointer.getNext();
     }
 
@@ -181,8 +181,8 @@ public class Order {
 
     // First loop: apply discounts
     while (current != null) {
-        if (current instanceof Science) {
-            ((Science) current).specialDiscount();
+        if (current.getData() instanceof Science) {
+            ((Science) current.getData()).specialDiscount();
         }
         current = current.getNext();
     }
@@ -190,7 +190,7 @@ public class Order {
     // Second loop: calculate total price
     Node pointer = headItem; //create a new node to start collecting the price
     while (pointer != null) {
-        tpr += pointer.getPrice();
+        tpr += pointer.getData().getPrice();
         pointer = pointer.getNext();
     }
 
@@ -206,8 +206,8 @@ public class Order {
 
     // First loop: apply discounts
     while (current != null) {
-        if (current instanceof Novel) {
-            ((Novel) current).specialDiscount();
+        if (current.getData() instanceof Novel) {
+            ((Novel) current.getData()).specialDiscount();
         }
         current = current.getNext();
     }
@@ -215,7 +215,7 @@ public class Order {
     // Second loop: calculate total price
     Node pointer = headItem; //create a new node to start collecting the price
     while (pointer != null) {
-        tpr += pointer.getPrice();
+        tpr += pointer.getData().getPrice();
         pointer = pointer.getNext();
     }
 
@@ -230,8 +230,8 @@ public class Order {
 
     // First loop: apply discounts
     while (current != null) {
-        if (current instanceof ShortStory) {
-            ((ShortStory) current).specialDiscount();
+        if (current.getData() instanceof ShortStory) {
+            ((ShortStory) current.getData()).specialDiscount();
         }
         current = current.getNext();
     }
@@ -239,7 +239,7 @@ public class Order {
     // Second loop: calculate total price
     Node pointer = headItem; //create a new node to start collecting the price
     while (pointer != null) {
-        tpr += pointer.getPrice();
+        tpr += pointer.getData().getPrice();
         pointer = pointer.getNext();
     }
 
@@ -259,18 +259,19 @@ public class Order {
             current = current.getNext();
         }
 			
-		}
+		
 		
 		double totalPrice = 0.0;
 		
 		
       while (current != null) {
-            totalPrice += current.getPrice();
+            totalPrice += current.getData().getPrice();
             current = current.getNext();
         }
 		
 		return str + String.format("Total Price: %.2f\n", totalPrice); 
 	}
+
 	
 	
 	
