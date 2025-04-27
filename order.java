@@ -214,36 +214,27 @@ public class Order {
 	
 	
 	
-	public String toString() {
-		String str ="order name: " + name +"  customer's ID: " + ID + "  number of books: " + numOfItems ;
+	
+    public String toString() {
+		String str ="order name: " + name +"  customer's ID: " + ID + "  number of books: " + countBooks() ;
 		str = str + "\n items in the order: \n";
-		for (int i = 0; i< numOfItems; i++) {
-			str = str + orderItems[i].toString();
-			System.out.println();
          
-         /*Node current = head;
+         Node current = headItem;
 
         while (current != null) {
-            result += current.data;
-            if (current.next != null) {
-                result += " -> ";
-            }
-            current = current.next;
-        }*/
+            str += current.getData().toString()+ "\n";
+            current = current.getNext();
+        }
 			
 		}
 		
 		double totalPrice = 0.0;
 		
-		for (int i = 0; i< numOfItems; i++) {
-			totalPrice = totalPrice + orderItems[i].getPrice();
-			
-		}
-      /*while (current != null) {
-            str += current.name + " ($" + String.format("%.2f", current.price) + ")\n";
+		
+      while (current != null) {
             totalPrice += current.getPrice();
-            current = current.next;
-        }*/
+            current = current.getNext();
+        }
 		
 		return str + String.format("Total Price: %.2f\n", totalPrice); 
 	}
