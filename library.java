@@ -41,25 +41,15 @@ public class Library {
       File f2 = new File("orders.dat");
       FileInputStream ff2 = new FileInputStream( f2);
       ObjectInputStream in2= new ObjectInputStream(ff2) ;
-      Order[] ordersArray = (Order[]) in2.readObject();
-      
-      //rebuild the linked list 
-      for (Order order : ordersArray) {
-            Node<Order> currentNode = order.headItem;  // Use headItem instead of headNode
-            while (currentNode != null) {
-                // You can process the nodes or re-link them if needed
-                currentNode = currentNode.next;  // Move to the next node
-            }
-        }
+      ListOfOrders = (Order[]) in2.readObject();  // Deserialize List of 
+            in2.close();
+            
+        
 
-        ListOfOrders = ordersArray; 
-      
-      
-      in2.close();
       } catch( ClassNotFoundException ex){ System.out.println(ex.toString()); }
       catch( IOException e){ System.out.println(e.toString());}
       }
-      }
+      
 
 //the rest of the methods here are supposed to be fine with no changes	
 	public Library(String n , String loc, int maxOrders) {
