@@ -110,109 +110,142 @@ public class Order {
         return false;
         }
 	
-	
-	
 	public double addDiscount(int pr) {
 		double tpr = 0;
-		for (int i = 0; i <numOfItems; i++) {
-			if (orderItems[i] != null) {
-			tpr = tpr + orderItems[i].discount(pr);
-			
-		}
+      Node current = headItem;
+      if( headItem == null) //checks if there are items
+			return tpr ; 
+      while (current != null) {
+      current.discount(pr);
+      tpr += current.getPrice();
+      current = current.getNext();
       }
 		return tpr;
 	}
 	
 	public double addSpecialDiscountFiction() {
 		double tpr = 0;
-		for (int i = 0; i <numOfItems; i++) 
-			if(orderItems[i] instanceof Fiction && !(orderItems[i] instanceof Novel) && !(orderItems[i] instanceof ShortStory)) {
-				((Fiction)orderItems[i]).specialDiscount();
-			}
-				
-		for (int j = 0; j <numOfItems; j++) {
-			tpr = tpr + orderItems[j].price;
-		}
-		
-		return tpr;
+   Node current = headItem;
+   if( headItem == null) //checks if there are items
+			return tpr ; 
+
+    // First loop: apply discounts
+    while (current != null) {
+        if (current instanceof Fiction) {
+            ((Fiction) current).specialDiscount();
+        }
+        current = current.getNext();
+    }
+
+    // Second loop: calculate total price
+    Node pointer = headItem; //create a new node to start collecting the price
+    while (pointer != null) {
+        tpr += pointer.getPrice();
+        pointer = pointer.getNext();
+    }
+
+    return tpr;
+
 	}
 	
 	public double addSpecialDiscountNonFiction() {
 		double tpr = 0;
-		for (int i = 0; i <numOfItems; i++) 
-			if(orderItems[i] instanceof NonFiction && !(orderItems[i] instanceof Science) ) {
-				((NonFiction)orderItems[i]).specialDiscount();
-			}
-				
-		for (int j = 0; j <numOfItems; j++) {
-			tpr = tpr + orderItems[j].price;
-		}
-		
-		return tpr;
+   Node current = headItem;
+   if( headItem == null) //checks if there are items
+			return tpr ; 
+
+    // First loop: apply discounts
+    while (current != null) {
+        if (current instanceof NonFiction) {
+            ((NonFiction) current).specialDiscount();
+        }
+        current = current.getNext();
+    }
+
+    // Second loop: calculate total price
+    Node pointer = headItem; //create a new node to start collecting the price
+    while (pointer != null) {
+        tpr += pointer.getPrice();
+        pointer = pointer.getNext();
+    }
+
+    return tpr;
+
 	}
 	
 	public double addSpecialDiscountScience() {
 		double tpr = 0;
-		for (int i = 0; i <numOfItems; i++) 
-			if(orderItems[i] instanceof Science) {
-				((Science)orderItems[i]).specialDiscount();
-			}
-				
-		for (int j = 0; j <numOfItems; j++) {
-			tpr = tpr + orderItems[j].price;
-		}
-		
-		return tpr;
+   Node current = headItem;
+   if( headItem == null) //checks if there are items
+			return tpr ; 
+
+    // First loop: apply discounts
+    while (current != null) {
+        if (current instanceof Science) {
+            ((Science) current).specialDiscount();
+        }
+        current = current.getNext();
+    }
+
+    // Second loop: calculate total price
+    Node pointer = headItem; //create a new node to start collecting the price
+    while (pointer != null) {
+        tpr += pointer.getPrice();
+        pointer = pointer.getNext();
+    }
+
+    return tpr;
+
 	}
 	
 	public double addSpecialDiscountNovel() {
 		double tpr = 0;
-		for (int i = 0; i <numOfItems; i++) 
-			if(orderItems[i] instanceof Novel) {
-				((Novel)orderItems[i]).specialDiscount();
-			}
-				
-		for (int j = 0; j <numOfItems; j++) {
-			tpr = tpr + orderItems[j].price;
-		}
-		
-		return tpr;
+   Node current = headItem;
+   if( headItem == null) //checks if there are items
+			return tpr ; 
+
+    // First loop: apply discounts
+    while (current != null) {
+        if (current instanceof Novel) {
+            ((Novel) current).specialDiscount();
+        }
+        current = current.getNext();
+    }
+
+    // Second loop: calculate total price
+    Node pointer = headItem; //create a new node to start collecting the price
+    while (pointer != null) {
+        tpr += pointer.getPrice();
+        pointer = pointer.getNext();
+    }
+
+    return tpr;
 	}
 	
 	public double addSpecialDiscountShortStory() {
-   /*Item current = head; // head of the linked list
+   double tpr = 0;
+   Node current = headItem;
+   if( headItem == null) //checks if there are items
+			return tpr ; 
 
     // First loop: apply discounts
     while (current != null) {
         if (current instanceof ShortStory) {
             ((ShortStory) current).specialDiscount();
         }
-        current = current.next;
+        current = current.getNext();
     }
 
     // Second loop: calculate total price
-    current = head; // reset to start
-    while (current != null) {
-        totalPrice += current.price;
-        current = current.next;
+    Node pointer = headItem; //create a new node to start collecting the price
+    while (pointer != null) {
+        tpr += pointer.getPrice();
+        pointer = pointer.getNext();
     }
 
-    return totalPrice;*/
+    return tpr;
     
-		double tpr = 0;
-		for (int i = 0; i <numOfItems; i++) 
-			if(orderItems[i] instanceof ShortStory) {
-				((ShortStory)orderItems[i]).specialDiscount();
-			}
-				
-		for (int j = 0; j <numOfItems; j++) {
-			tpr = tpr + orderItems[j].price;
 		}
-		
-		return tpr;
-	}
-	
-	
 	
 	
     public String toString() {
