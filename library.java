@@ -1,4 +1,5 @@
 package javaphase1;
+import java.io.*;
 
 public class Library {
 	public String name; //name of the library
@@ -11,43 +12,54 @@ public class Library {
    //we will add two new methods here, one for saving and one for loading
    //make sure books, order, and node were serializable
    
-   /* public void savaAllInfo(){
- try{
-File out = new File("books.dat");
-FileOutputStream fos = new FileOutputStream (out);
-ObjectOutputStream oos = new ObjectOutputStream (fos);
-oos.writeObject( inStore ) ; // this will save all the books that were in the library
-oos.close();
-File out2 = new File("orders.dat");
-FileOutputStream fos2 = new FileOutputStream (out2);
-ObjectOutputStream oos2 = new ObjectOutputStream (fos2);
-oos2.writeInt(numRes);
-oos2.writeObject( ListOfOrders ) ; // saves all the orders with their linked list as well
-oos2.close();
- } catch( IOException e){
- System.out.println(e.toString());
- }
-}*/ 
+   public void savaAllInfo(){
+      try{
+      File out = new File("booksInStore.dat");
+      FileOutputStream fos = new FileOutputStream (out);
+      ObjectOutputStream oos = new ObjectOutputStream (fos);
+      oos.writeObject( inStore ) ; // this will save all the books that were in the library
+      oos.close();
+      
+      File out2 = new File("orders.dat");
+      FileOutputStream fos2 = new FileOutputStream (out2);
+      ObjectOutputStream oos2 = new ObjectOutputStream (fos2);
+      oos2.writeObject( ListOfOrders ) ; // saves all the orders with their linked list as well
+      oos2.close();
+      } catch( IOException e){
+      System.out.println(e.toString());
+      }
+      }
 
-/*public void readAllData(){ //unedited
- try{
-File f = new File(fileOutput);
-FileInputStream ff = new FileInputStream( f);
-ObjectInputStream in= new ObjectInputStream(ff) ;
+      public void readAllData(){ 
+      try{
+      File f = new File("booksInStore.dat");
+      FileInputStream ff = new FileInputStream( f);
+      ObjectInputStream in= new ObjectInputStream(ff) ;
+      inStore = (Books[]) in.readObject();
+      in.close() ;
+      
+      File f2 = new File("orders.dat");
+      FileInputStream ff2 = new FileInputStream( f2);
+      ObjectInputStream in2= new ObjectInputStream(ff2) ;
+      Order[] ordersArray = (Order[]) in2.readObject();
+      
+      //rebuild the linked list 
+      for (Order order : ordersArray) {
+            Node<Order> currentNode = order.headItem;  // Use headItem instead of headNode
+            while (currentNode != null) {
+                // You can process the nodes or re-link them if needed
+                currentNode = currentNode.next;  // Move to the next node
+            }
+        }
 
-headRoom = (Node ) in.readObject();
-in.close() ;
-File f2 = new File("Reservations.dat");
-FileInputStream ff2 = new FileInputStream( f2);
-ObjectInputStream in2= new ObjectInputStream(ff2) ;
-numRes = in2.readInt() ;
-reservations = (Reservation[]) in2.readObject();
-in2.close() ;
-JOptionPane.showMessageDialog(null , "All data in files are loaded.");
-} catch( ClassNotFoundException ex){ System.out.println(ex.toString()); }
-catch( IOException e){ System.out.println(e.toString());}
-}
-}*/
+        ListOfOrders = ordersArray; 
+      
+      
+      in2.close();
+      } catch( ClassNotFoundException ex){ System.out.println(ex.toString()); }
+      catch( IOException e){ System.out.println(e.toString());}
+      }
+      }
 
 //the rest of the methods here are supposed to be fine with no changes	
 	public Library(String n , String loc, int maxOrders) {
