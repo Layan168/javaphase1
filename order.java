@@ -32,18 +32,19 @@ public class Order {
    
 	
 	public boolean addItem (Books a) { //composition
-   Node n =null;
 		
-				if (a instanceof Novel) {
-				    n = new Node ( new Novel(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((Novel)a).getRecommendedAge()));
-                n.setNext(headItem);
-                headItem = n ; 
-            	return true;}
-				else if (a instanceof ShortStory) {
-					n = new Node ( new ShortStory(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((ShortStory)a).getCountWord())); 
-					
-					 n.setNext(headItem);
-		                headItem = n ; 
+                               Node n =null;
+		
+	                    if (a instanceof Novel) {
+                            n = new Node ( new Novel(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((Novel)a).getRecommendedAge()));
+                             n.setNext(headItem);
+                              headItem = n ; 
+                              return true;}
+	                      else if (a instanceof ShortStory) {
+	                       n = new Node ( new ShortStory(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((ShortStory)a).getCountWord())); 
+	 				
+	                        n.setNext(headItem);
+	                        headItem = n ; 
 		            	return true;}
 					 
 				else if (a instanceof Science) {
