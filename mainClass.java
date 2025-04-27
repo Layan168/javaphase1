@@ -249,7 +249,7 @@ public class MainClass {
 				 String id = input.next();
 				 input.nextLine();
 				 
-				 Order custOrder = new Order(nm,id,size);
+				 Order custOrder = new Order(nm,id);
 				 library1.addOrder(custOrder);
 				 String bookt;
 				 
@@ -460,7 +460,7 @@ public class MainClass {
 				System.out.println("See you next time");
             
             //save all changes to file;
-            Library.savaAllInfo();
+            library1.savaAllInfo();
 				break;
 			
 				
