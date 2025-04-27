@@ -1,7 +1,8 @@
 
-package phase2;
+package javaphase1;
+import java.io.Serializable;
 
-public class Order {
+public class Order implements Serializable {
 	
 	public String name; //customer's name
 	public String ID; //customer's id    
