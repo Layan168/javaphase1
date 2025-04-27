@@ -1,10 +1,20 @@
 package javaphase1;
 import java. util. Scanner;
+import java.io.File;
 public class MainClass {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		
+      
+      //check if a file exists
+      File f = new File("booksInStore.dat");
+      File f2 = new File("orders.dat");
+      if( f.exists() && f2.exists() ){
+      Library.readAllData();
+      
+
+      
+		else{
 		Science book1 = new Science("Chemistry For Dummies", "John T.Moore", "For Dummies", 19.99, 2016, 2023, "English", "Chemistry");
 		Science book2 = new Science("The Universe in a Nutshell", "Stephen Hawking", "Bantam Books" , 35.00 , 2001,  2001,"Arabic", "Physics");
 		Science book3 = new Science("The Hidden Life of Trees", "Peter Wohlleben", "Greystone Books", 24.95, 2016,  2018, "English", "Ecology" );
@@ -41,11 +51,10 @@ public class MainClass {
 		library1.addBook(book13);
 		library1.addBook(book14);
 		library1.addBook(book15);
+      }
 	
-		
-		int ch =0;
+				int ch =0;
 		do {// main loop
-			try {
 			System.out.println("welcome to the main menu"); 
 			System.out.println("Enter a number to proceed");
 			System.out.println("managing the library: ");
@@ -449,6 +458,9 @@ public class MainClass {
 			case 14: //exit
 				System.out.println("Exiting the system...");
 				System.out.println("See you next time");
+            
+            //save all changes to file;
+            Library.savaAllInfo();
 				break;
 			
 				
@@ -458,11 +470,7 @@ public class MainClass {
 			
 			
 			}//end of switch for main menu
-				} catch(InputMismatchException e) {    //Unchecked Exception
-				System.out.println("Invalid input!  please try again.");
-				input.next();
-				ch = 0;
-						}
+			
 			
 		}while(ch != 14); //end of main loop
 		 
