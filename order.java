@@ -1,127 +1,114 @@
-package javaphase1;
+
+package phase2;
 
 public class Order {
-	public String name; //customer's name
-	public String ID; //customer's id 
-	Books orderItems[]; //array with the books the customer wants to purchase
-	public int numOfItems; //number of books the order
-   //new node headbooks
 	
-	//create a method to store all orders into file + read orders from file + make it node
+	public String name; //customer's name
+	public String ID; //customer's id    
+	Node headItem; //first node in linked list for order items
+	
 	public Order (String n, String id, int size) {
 		name = n;
 		ID = id;
-		orderItems = new Books [size];
-		numOfItems = 0;
-      //add the node object and make it null 
+		headItem = null;
 	}
    
-   /* create method count to count the objects in the linked list
-   public int countBooks(){
-   if( headRoom == null )
-   return 0 ;
-   int count =0 ;
-   Node current = headRoom ;
-   while(current != null ){
-   count++ ;
-   current = current.getNext();
-   }
-   return count ;
-   }
+ 
+	public int countBooks(){ //counts the number of items in the order
+		int count =0 ;
+		if( headItem == null )
+			return count ;
+		
+		else {Node current = headItem ;
+			while(current != null ){
+				count++ ;
+				current = current.getNext();
+			}
+		}
+			return count ;
+		}
    
    
-   */
+   
 	
 	public boolean addItem (Books a) { //composition
-   //create a node n;
-		if (numOfItems < orderItems.length) {
-			// checking for space is no longer needed
+   Node n =null;
+		
 				if (a instanceof Novel) {
-					orderItems[numOfItems] = new Novel(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((Novel)a).getRecommendedAge());  
-				    numOfItems++;}
-				    // n = new node ( new Novel(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((Novel)a).getRecommendedAge());
-                //if it doesn't work, create a copy constructor
-                //n.setNext(headBooks);
-                //headBooks = n ; 
+				    n = new Node ( new Novel(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((Novel)a).getRecommendedAge()));
+                n.setNext(headItem);
+                headItem = n ; 
+            	return true;}
 				else if (a instanceof ShortStory) {
-					 orderItems[numOfItems] = new ShortStory(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((ShortStory)a).getCountWord()); 
-					 numOfItems++;}
+					n = new Node ( new ShortStory(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries(), ((ShortStory)a).getCountWord())); 
+					
+					 n.setNext(headItem);
+		                headItem = n ; 
+		            	return true;}
 					 
 				else if (a instanceof Science) {
-					orderItems[numOfItems] = new Science(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((NonFiction)a).getEdition(),((NonFiction)a).getLanguage(), ((Science)a).getScientificField());  
-					numOfItems++;}
+					 n = new Node ( new Science(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((NonFiction)a).getEdition(),((NonFiction)a).getLanguage(), ((Science)a).getScientificField()));  
+					 n.setNext(headItem);
+		                headItem = n ; 
+		            	return true;}
 					
 				else if (a instanceof NonFiction) {
-					orderItems[numOfItems] = new NonFiction(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((NonFiction)a).getEdition(),((NonFiction)a).getLanguage()); 
-					numOfItems++;}
+					 n = new Node ( new NonFiction(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((NonFiction)a).getEdition(),((NonFiction)a).getLanguage())); 
+					
+					 n.setNext(headItem);
+		                headItem = n ;
+		            	return true;}
 					
 				else if (a instanceof Fiction) {
-					    orderItems[numOfItems] = new Fiction(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries()); 
-					    numOfItems++;}
-					
-			return true;
-			}
-			
+					 n = new Node ( new Fiction(a.getTitle(), a.getAuthor(), a.getPublisher(), a.getPrice(), a.getYear(), ((Fiction)a).getNumOfpages(), ((Fiction)a).getGenre(), ((Fiction)a).getSeries())); 
+					    
+					    n.setNext(headItem);
+		                headItem = n ;
+		            	return true;}
+				else 
+					return false;
 		
-		return false;
 	}
 	
 	public boolean removeItem(String title) {
-   //if( headBooks == null)
-   //return false ; 
-   /*if(headRoom.getData().getRoomNo() == no ) {
-Room temp = headRoom.getData();
-if( temp.isAvailable() == false ){
-JOptionPane.showMessageDialog(null,"this room is reserved already now by
-other person");
-return false;
-}
-headRoom = headRoom.getNext();
-return true ;
-}
-Node priv = headRoom ;
-Node current = headRoom.getNext() ;
-while(current != null ){
-if( current.getData().getRoomNo()== no ) {
- if(current.getData().isAvailable() == true ){
-priv.setNext( current.getNext());
-return true ; }
- else
-JOptionPane.showMessageDialog(null,"this room is reserved already now by
-other person");
-return false;
-}
-else {
-priv = priv.getNext() ;
-current = current.getNext() ;
-}
-}*/
-		for (int i= 0; i < numOfItems; i++) {
-			if (orderItems[i].title.equalsIgnoreCase(title)) {
-				orderItems[i] = orderItems[numOfItems-1];
-				numOfItems --;
-				
-				return true;
+		if( headItem == null)
+			return false ; 
+		if (headItem.getData().getTitle().equalsIgnoreCase(title)) { 
+	        headItem = headItem.getNext();
+	        return true;
+	    }
+	
+		Node priv = headItem ;
+		Node current = headItem.getNext() ;
+		while(current != null ){
+			if( current.getData().getTitle().equalsIgnoreCase(title)) {
+					priv.setNext( current.getNext());
+					return true ; }
+			
+			else {
+				priv = priv.getNext() ;
+				current = current.getNext() ;
 			}
 		}
-			return false;
+		return false;
+		}
 		
-	}
+	
 		
 	public boolean searchItem(String title) {
    /*public Room searchRoom(int no ){
- if( headRoom == null )
- return null ;
+    if( headRoom == null )
+    return null ;
 
-Node current = headRoom ;
-while(current != null )
-{
-if( current.getData().getRoomNo() == no )
-return current.getData() ;
-current = current.getNext();
-}
-return null ; // if not found
-}*/
+    Node current = headRoom ;
+    while(current != null )
+      {
+       if( current.getData().getRoomNo() == no )
+       return current.getData() ;
+         current = current.getNext();
+          }
+          return null ; // if not found
+             }*/
 		for (int i = 0; i <numOfItems; i++) {
 			if (orderItems[i].title.equalsIgnoreCase(title))
 				return true;
@@ -129,6 +116,8 @@ return null ; // if not found
 		return false;
 		
 	}
+	
+	
 	
 	public double addDiscount(int pr) {
 		double tpr = 0;
@@ -263,8 +252,7 @@ return null ; // if not found
             current = current.next;
         }*/
 		
-		return str + System.out.printf("Total Price: %.2f\n", totalPrice); 
-		//String.format("Total Price: %.2f\n", totalPrice); instead of printf
+		return str + String.format("Total Price: %.2f\n", totalPrice); 
 	}
 	
 	
