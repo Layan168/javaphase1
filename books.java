@@ -1,12 +1,14 @@
 package javaphase1;
+import java.io.Serializable;
 
-public abstract class Books {
+public abstract class Books implements Serializable{
 	protected String title; //title of the book
 	protected String author; //author of the book
 	protected double price; //price of the book
 	protected String publisher; //publisher of the book
 	protected int year; //the year the book was published in
 	
+   
 	public Books (String t, String a, String p, double pr, int y) {
 	title = t;
 	author = a;
