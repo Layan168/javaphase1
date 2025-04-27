@@ -7,7 +7,7 @@ public class Order {
 	public String ID; //customer's id    
 	Node headItem; //first node in linked list for order items
 	
-	public Order (String n, String id, int size) {
+	public Order (String n, String id) {
 		name = n;
 		ID = id;
 		headItem = null;
