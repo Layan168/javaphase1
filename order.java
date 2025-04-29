@@ -1,6 +1,7 @@
+package phase2;
 
-package javaphase1;
 import java.io.Serializable;
+
 
 public class Order implements Serializable {
 	
@@ -75,7 +76,7 @@ public class Order implements Serializable {
 	public boolean removeItem(String title) {
 		if( headItem == null)
 			return false ; 
-		if (headItem.getData().getTitle().equalsIgnoreCase(title)) { 
+		if (headItem.getData() !=null && headItem.getData().getTitle().equalsIgnoreCase(title)) { 
 	        headItem = headItem.getNext();
 	        return true;
 	    }
@@ -83,12 +84,12 @@ public class Order implements Serializable {
 		Node priv = headItem ;
 		Node current = headItem.getNext() ;
 		while(current != null ){
-			if( current.getData().getTitle().equalsIgnoreCase(title)) {
+			if( current.getData() != null && current.getData().getTitle().equalsIgnoreCase(title)) {
 					priv.setNext( current.getNext());
 					return true ; }
 			
 			else {
-				priv = priv.getNext() ;
+				priv = current;
 				current = current.getNext() ;
 			}
 		}
@@ -263,11 +264,11 @@ public class Order implements Serializable {
 		
 		
 		double totalPrice = 0.0;
+		 Node pointer = headItem;
 		
-		
-      while (current != null) {
-            totalPrice += current.getData().getPrice();
-            current = current.getNext();
+      while (pointer != null) {
+            totalPrice +=  pointer.getData().getPrice();
+            pointer =  pointer.getNext();
         }
 		
 		return str + String.format("Total Price: %.2f\n", totalPrice); 
@@ -276,5 +277,6 @@ public class Order implements Serializable {
 	
 	
 	
+
 
 }
